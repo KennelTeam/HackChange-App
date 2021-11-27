@@ -7,19 +7,23 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.changellenge_client.ui.home.HomeFragment"
+        android:name="com.kennelteam.hack_change.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_flow"
-        android:name="com.example.changellenge_client.ui.flow.FlowFragment"
+        android:name="com.kennelteam.hack_change.ui.flow.FlowFragment"
         android:label="@string/title_flow"
-        tools:layout="@layout/fragment_flow" />
+        tools:layout="@layout/fragment_flow" >
+        <action
+            android:id="@+id/action_navigation_flow_to_companiesFragment"
+            app:destination="@id/companiesFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.changellenge_client.ui.profile.ProfileFragment"
+        android:name="com.kennelteam.hack_change.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -29,11 +33,25 @@
 
     <fragment
         android:id="@+id/navigation_edit_profile"
-        android:name="com.example.changellenge_client.ui.edit_profile.EditProfileFragment"
+        android:name="com.kennelteam.hack_change.ui.edit_profile.EditProfileFragment"
         android:label="@string/title_edit_profile"
         tools:layout="@layout/fragment_edit_profile">
         <action
             android:id="@+id/action_profile_edited"
             app:destination="@id/navigation_profile" />
     </fragment>
+    <fragment
+        android:id="@+id/companiesFragment"
+        android:name="com.kennelteam.hack_change.ui.flow.companies.CompaniesFragment"
+        android:label="fragment_companies"
+        tools:layout="@layout/fragment_companies" >
+        <action
+            android:id="@+id/action_companiesFragment_to_postFlowFragment"
+            app:destination="@id/postFlowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postFlowFragment"
+        android:name="com.kennelteam.hack_change.ui.flow.post_flow.PostFlowFragment"
+        android:label="fragment_post_flow"
+        tools:layout="@layout/fragment_post_flow" />
 </navigation>

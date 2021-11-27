@@ -1,13 +1,13 @@
-package com.example.changellenge_client.ui.profile
+package com.kennelteam.hack_change.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ProfileViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Nickname"
+        value = "This is home Fragment"
     }
     val text: LiveData<String> = _text
 }

@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Changellenge_client"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MainActivity"
+            android:name="com.kennelteam.hack_change.MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>

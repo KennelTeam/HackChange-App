@@ -1,4 +1,4 @@
-package com.example.changellenge_client.ui.edit_profile
+package com.kennelteam.hack_change.ui.edit_profile
 
 import android.os.Bundle
 import android.util.Log
@@ -6,14 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.changellenge_client.R
-import com.example.changellenge_client.Variables
+import com.kennelteam.hack_change.Variables
 import com.example.changellenge_client.databinding.FragmentEditProfileBinding
 
 class EditProfileFragment : Fragment() {
