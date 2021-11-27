@@ -1,13 +1,13 @@
-package com.example.changellenge_client.ui.dashboard
+package com.example.changellenge_client.ui.flow
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class FlowViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "This is flow Fragment"
     }
     val text: LiveData<String> = _text
 }

@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.changellenge_client.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_flow"
+        android:name="com.example.changellenge_client.ui.flow.FlowFragment"
+        android:label="@string/title_flow"
+        tools:layout="@layout/fragment_flow" />
 
     <fragment
         android:id="@+id/navigation_profile"

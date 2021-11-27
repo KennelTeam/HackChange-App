@@ -1,0 +1,50 @@
+package com.example.changellenge_client.ui.flow
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.changellenge_client.databinding.FragmentFlowBinding
+import android.widget.ArrayAdapter
+import com.example.changellenge_client.R
+
+
+
+
+class FlowFragment : Fragment() {
+
+    private lateinit var flowViewModel: FlowViewModel
+    private var _binding: FragmentFlowBinding? = null
+
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        flowViewModel = ViewModelProvider(this)[FlowViewModel::class.java]
+
+        _binding = FragmentFlowBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        val toolsList = arrayOf(
+            "Акции", "Облигации", "Валюта", "Деривативы", "Драгоценные металлы", "Фонды"
+        )
+
+        val toolsAdapter = context?.let { ArrayAdapter(it, android.R.layout.simple_list_item_1, toolsList) }
+
+        binding.toolsListView.adapter = toolsAdapter
+
+        return root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}
