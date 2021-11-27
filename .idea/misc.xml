@@ -6,21 +6,20 @@
         <entry key="../../../../Android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.19791666666666666" />
         <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25407608695652173" />
-        <entry key="app/src/main/res/layout/fragment_companies.xml" value="0.3242753623188406" />
+        <entry key="app/src/main/res/layout/custom_list_view_adapter.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/custom_list_view_item.xml" value="0.3283514492753623" />
+        <entry key="app/src/main/res/layout/fragment_comment.xml" value="0.33242753623188404" />
+        <entry key="app/src/main/res/layout/fragment_companies.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.3292572463768116" />
         <entry key="app/src/main/res/layout/fragment_flow.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.3292572463768116" />
-        <entry key="app/src/main/res/layout/fragment_post.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_post.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/post_flow_fragment.xml" value="0.33242753623188404" />
         <entry key="app/src/main/res/layout/post_fragment.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.35572916666666665" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21145833333333333" />
-        <entry key="app/src/main/res/layout/fragment_change_avatar.xml" value="0.17864583333333334" />
-        <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.21145833333333333" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3765625" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.21145833333333333" />
-        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.21145833333333333" />
       </map>
     </option>
   </component>

@@ -15,7 +15,11 @@
         android:id="@+id/navigation_flow"
         android:name="com.example.changellenge_client.ui.flow.FlowFragment"
         android:label="@string/title_flow"
-        tools:layout="@layout/fragment_flow" />
+        tools:layout="@layout/fragment_flow" >
+        <action
+            android:id="@+id/action_navigation_flow_to_companiesFragment"
+            app:destination="@id/companiesFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -36,4 +40,18 @@
             android:id="@+id/action_profile_edited"
             app:destination="@id/navigation_profile" />
     </fragment>
+    <fragment
+        android:id="@+id/companiesFragment"
+        android:name="com.example.changellenge_client.ui.flow.companies.CompaniesFragment"
+        android:label="fragment_companies"
+        tools:layout="@layout/fragment_companies" >
+        <action
+            android:id="@+id/action_companiesFragment_to_postFlowFragment"
+            app:destination="@id/postFlowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postFlowFragment"
+        android:name="com.example.changellenge_client.ui.flow.post_flow.PostFlowFragment"
+        android:label="fragment_post_flow"
+        tools:layout="@layout/fragment_post_flow" />
 </navigation>

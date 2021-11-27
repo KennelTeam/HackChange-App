@@ -1,19 +1,20 @@
 package com.example.changellenge_client.ui.flow
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
+import android.widget.AdapterView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.changellenge_client.databinding.FragmentFlowBinding
 import android.widget.ArrayAdapter
+import androidx.navigation.fragment.findNavController
 import com.example.changellenge_client.R
-
-
-
 
 class FlowFragment : Fragment() {
 
@@ -39,6 +40,11 @@ class FlowFragment : Fragment() {
         val toolsAdapter = context?.let { ArrayAdapter(it, android.R.layout.simple_list_item_1, toolsList) }
 
         binding.toolsListView.adapter = toolsAdapter
+
+        binding.toolsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
+            Log.i("aaa", toolsList[itemIndex])
+            this.findNavController().navigate(R.id.action_navigation_flow_to_companiesFragment)
+        }
 
         return root
     }
