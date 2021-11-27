@@ -37,6 +37,11 @@ class HomeFragment : Fragment() {
             Navigation.findNavController(root).navigate(R.id.action_start_create_post)
         }
 
+        val buttonUserPage = binding.buttonTestUserPage
+        buttonUserPage.setOnClickListener {
+            Navigation.findNavController(root).navigate(R.id.action_show_user_page)
+        }
+
         return root
     }
 

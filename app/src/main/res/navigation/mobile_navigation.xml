@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_start_create_post"
             app:destination="@id/createPostFragment" />
+        <action
+            android:id="@+id/action_show_user_page"
+            app:destination="@id/userPageFragment" />
     </fragment>
 
     <fragment
@@ -67,4 +70,8 @@
             android:id="@+id/action_end_create_post"
             app:destination="@id/navigation_home" />
     </fragment>
+    <fragment
+        android:id="@+id/userPageFragment"
+        android:name="com.kennelteam.hack_change.ui.user_profile.UserPageFragment"
+        android:label="UserPageFragment" />
 </navigation>
