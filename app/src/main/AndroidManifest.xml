@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.changellenge_client">
+    package="com.kennelteam.hack_change">
 
     <application
         android:allowBackup="true"

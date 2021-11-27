@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.kennelteam.hack_change.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_start_create_post"
+            app:destination="@id/createPostFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_flow"
@@ -54,4 +58,13 @@
         android:name="com.kennelteam.hack_change.ui.flow.post_flow.PostFlowFragment"
         android:label="fragment_post_flow"
         tools:layout="@layout/fragment_post_flow" />
+    <fragment
+        android:id="@+id/createPostFragment"
+        android:name="com.kennelteam.hack_change.ui.create_post.CreatePostFragment"
+        android:label="fragment_create_post"
+        tools:layout="@layout/fragment_create_post" >
+        <action
+            android:id="@+id/action_end_create_post"
+            app:destination="@id/navigation_home" />
+    </fragment>
 </navigation>
