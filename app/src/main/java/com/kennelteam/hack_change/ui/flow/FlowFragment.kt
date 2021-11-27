@@ -28,6 +28,7 @@ class FlowFragment : Fragment() {
         flowViewModel = ViewModelProvider(this)[FlowViewModel::class.java]
 
         _binding = FragmentFlowBinding.inflate(inflater, container, false)
+
         val root: View = binding.root
 
         val toolsList = arrayOf(

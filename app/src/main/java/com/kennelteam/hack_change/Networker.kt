@@ -194,9 +194,10 @@ class Networker {
                     { response ->
                         callback(response)
                         Log.i("Test!", response)
-                    }, { callback(null) })
+                    }, { callback(null)
+                    Log.i("Test!!! - error", it.toString())})
                 //Log.i("Test!!!", "data: " + data)
-
+                Log.i("Test!!! - request", stringRequest.toString())
                 requestQueue.add(stringRequest)
             } catch (e: android.os.NetworkOnMainThreadException) {
                 Log.i("Test!!!", "error: " + e.stackTraceToString())
