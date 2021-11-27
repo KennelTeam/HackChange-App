@@ -19,26 +19,26 @@ class CommentListViewAdapter(items: ArrayList<Comment>, ctx: Context) :
     }
 
     override fun getView(i: Int, view: View?, viewGroup: ViewGroup): View {
-        var view_ = view
+        var view = view
         val viewHolder: CommentItemViewHolder
 
-        if (view_ == null) {
+        if (view == null) {
             val inflater = LayoutInflater.from(context)
-            view_ = inflater.inflate(R.layout.comment_list_view_item, viewGroup, false)
+            view = inflater.inflate(R.layout.comment_list_view_item, viewGroup, false)
 
             viewHolder = CommentItemViewHolder()
-            viewHolder.userName = view_!!.findViewById<View>(R.id.user_name) as TextView
-            viewHolder.text = view_.findViewById<View>(R.id.text) as TextView
+            viewHolder.userName = view!!.findViewById<View>(R.id.user_name) as TextView
+            viewHolder.text = view.findViewById<View>(R.id.text) as TextView
         } else {
-            viewHolder = view_.tag as CommentItemViewHolder
+            viewHolder = view.tag as CommentItemViewHolder
         }
 
         val comment = getItem(i)
         viewHolder.userName!!.text = comment!!.userName
         viewHolder.text!!.text = comment.text
 
-        view_.tag = viewHolder
+        view.tag = viewHolder
 
-        return view_
+        return view
     }
 }
