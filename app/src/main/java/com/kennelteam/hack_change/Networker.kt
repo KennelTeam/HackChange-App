@@ -1,15 +1,10 @@
 package com.kennelteam.hack_change
 
 import android.content.Context
-import android.provider.ContactsContract
 import android.util.Log
 import java.lang.Exception
-import java.net.HttpURLConnection
-import java.net.URL
-import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.RequestQueue
-import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 
@@ -54,7 +49,7 @@ class Networker {
 
         fun getProfile(profileId: Int, setInfo: (user: UserInfo, postIds: List<Int>) -> Unit,
                 onFail: (e: Error) -> Unit) {
-            sendRequest("getProfile", mapOf("profile_id" to profileId.toString()), {
+            sendRequest("getProfile", mapOf("user_id" to profileId.toString()), {
                 try {
                     val data = jsonFormat.decodeFromString<ProfileInfo>(it)
                     setInfo(data.info, data.posts)
@@ -78,9 +73,9 @@ class Networker {
             }
         }
 
-        fun getPost(postId: Int, onSuccess: (post: PostExtended) -> Unit,
+        fun getPost(post_id: Int, onSuccess: (post: PostExtended) -> Unit,
                     onFail: (e: Error) -> Unit) {
-            sendRequest("getPost", mapOf("postId" to postId.toString()), {
+            sendRequest("getPost", mapOf("post_id" to post_id.toString()), {
                 try {
                     val data = jsonFormat.decodeFromString<PostExtended>(it)
                     onSuccess(data)

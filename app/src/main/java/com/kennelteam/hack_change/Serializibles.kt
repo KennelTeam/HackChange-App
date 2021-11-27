@@ -24,7 +24,7 @@ data class ProfileInfo(val info: UserInfo, val posts: List<Int>)
 data class PostTopic(val id: Int, val title: String)
 
 @Serializable
-data class UserInfo(val id: Int, val nickname: String, val avatar_link: String)
+data class UserInfo(val user_id: Int, val nickname: String, val avatar_link: String?)
 
 @Serializable
 data class PostExtended(val id: Int, val timestamp: String, val topic: PostTopic, val author: UserInfo, val text: String)

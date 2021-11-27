@@ -1,6 +1,7 @@
 package com.kennelteam.hack_change.ui.profile
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import com.kennelteam.hack_change.AccessTokenManager
+import com.kennelteam.hack_change.Networker
 import com.kennelteam.hack_change.R
 import com.kennelteam.hack_change.Variables
 import com.kennelteam.hack_change.databinding.FragmentProfileBinding
@@ -33,7 +37,7 @@ class ProfileFragment : Fragment() {
         val root: View = binding.root
 
         val nickname: TextView = binding.textNickname
-        nickname.setText(Variables.nickname)
+        nickname.setText("loading....")
 
         val profileImage: ImageView = binding.imageView
 
@@ -44,6 +48,15 @@ class ProfileFragment : Fragment() {
         edit_button.setOnClickListener {
             Navigation.findNavController(root).navigate(R.id.action_edit_profile)
         }
+
+        binding.logout.setOnClickListener {
+            AccessTokenManager.clear()
+            this.findNavController().navigate(R.id.action_profile_logout)
+        }
+
+        Networker.getProfile(AccessTokenManager.get_id(),
+            {user, postIds -> binding.textNickname.setText(user.nickname) },
+            { Log.i("Test!!! - error", it.error_desc)})
 
         return root
     }
