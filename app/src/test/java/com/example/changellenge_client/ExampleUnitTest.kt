@@ -1,4 +1,4 @@
-package com.KennelTeam.HackChange
+package com.example.changellenge_client
 
 import org.junit.Test
 

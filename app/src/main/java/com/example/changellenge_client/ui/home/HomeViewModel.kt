@@ -1,4 +1,4 @@
-package com.KennelTeam.HackChange.ui.home
+package com.example.changellenge_client.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
