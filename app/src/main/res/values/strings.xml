@@ -12,5 +12,5 @@
     <string name="title_edit_profile">Edit Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="server_location">http://18.133.117.201:5000</string>
 </resources>

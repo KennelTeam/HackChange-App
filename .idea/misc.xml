@@ -3,7 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../../../Android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.19791666666666666" />
         <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25407608695652173" />
         <entry key="app/src/main/res/layout/custom_list_view_adapter.xml" value="0.33" />
@@ -22,6 +21,10 @@
         <entry key="app/src/main/res/layout/post_flow_fragment.xml" value="0.33242753623188404" />
         <entry key="app/src/main/res/layout/post_fragment.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.35572916666666665" />
+        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_comment.xml" value="0.1" />
+        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_companies.xml" value="0.1" />
+        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_dashboard.xml" value="0.12092391304347826" />
+        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/login_fragment.xml" value="0.152" />
       </map>
     </option>
   </component>
