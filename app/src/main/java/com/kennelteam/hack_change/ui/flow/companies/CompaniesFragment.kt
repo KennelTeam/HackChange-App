@@ -1,20 +1,17 @@
-package com.example.changellenge_client.ui.flow.companies
+package com.kennelteam.hack_change.ui.flow.companies
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import com.example.changellenge_client.R
 import com.example.changellenge_client.databinding.FragmentCompaniesBinding
-import com.example.changellenge_client.databinding.FragmentFlowBinding
-import com.example.changellenge_client.ui.flow.Attraction
-import com.example.changellenge_client.ui.flow.CustomListViewAdapter
+import com.kennelteam.hack_change.ui.flow.Attraction
+import com.kennelteam.hack_change.ui.flow.CustomListViewAdapter
 
 class CompaniesFragment : Fragment() {
 

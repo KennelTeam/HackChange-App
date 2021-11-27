@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.flow.companies.CompaniesFragment">
+    tools:context="com.kennelteam.hack_change.ui.flow.companies.CompaniesFragment">
 
     <ListView
         android:id="@+id/companiesListView"

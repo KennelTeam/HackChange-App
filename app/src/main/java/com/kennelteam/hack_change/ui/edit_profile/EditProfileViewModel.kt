@@ -1,4 +1,4 @@
-package com.example.changellenge_client.ui.edit_profile
+package com.kennelteam.hack_change.ui.edit_profile
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

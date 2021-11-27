@@ -1,15 +1,12 @@
-package com.example.changellenge_client.ui.flow
+package com.kennelteam.hack_change.ui.flow
 
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import android.widget.AdapterView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.changellenge_client.databinding.FragmentFlowBinding
 import android.widget.ArrayAdapter

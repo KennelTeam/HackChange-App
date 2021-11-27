@@ -1,4 +1,4 @@
-package com.example.changellenge_client.ui.flow
+package com.kennelteam.hack_change.ui.flow
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

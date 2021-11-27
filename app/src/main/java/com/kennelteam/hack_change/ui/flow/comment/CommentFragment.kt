@@ -1,4 +1,4 @@
-package com.example.changellenge_client.ui.flow.comment
+package com.kennelteam.hack_change.ui.flow.comment
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,10 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.changellenge_client.R
 import com.example.changellenge_client.databinding.FragmentCommentBinding
-import com.example.changellenge_client.databinding.FragmentPostBinding
-import com.example.changellenge_client.ui.flow.post.PostViewModel
 
 class CommentFragment : Fragment() {
 

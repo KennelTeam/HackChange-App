@@ -1,4 +1,4 @@
-package com.example.changellenge_client.ui.flow.post_flow
+package com.kennelteam.hack_change.ui.flow.post_flow
 
 import androidx.lifecycle.ViewModel
 

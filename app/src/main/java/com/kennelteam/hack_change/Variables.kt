@@ -1,4 +1,4 @@
-package com.example.changellenge_client
+package com.kennelteam.hack_change
 
 object Variables {
     val user_mail_address = "yveega@gmail.com"

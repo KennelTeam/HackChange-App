@@ -1,4 +1,4 @@
-package com.example.changellenge_client.ui.flow
+package com.kennelteam.hack_change.ui.flow
 
 import android.content.Context
 import android.graphics.Color

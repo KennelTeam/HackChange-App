@@ -1,4 +1,4 @@
-package com.example.changellenge_client.ui.flow.post
+package com.kennelteam.hack_change.ui.flow.post
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.lifecycle.Observer
 import com.example.changellenge_client.databinding.FragmentPostBinding
 
 class PostFragment : Fragment() {

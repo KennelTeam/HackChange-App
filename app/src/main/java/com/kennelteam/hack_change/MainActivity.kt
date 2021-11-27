@@ -1,4 +1,4 @@
-package com.example.changellenge_client
+package com.kennelteam.hack_change
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.changellenge_client.R
 import com.example.changellenge_client.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
