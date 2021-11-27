@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.changellenge_client.R
+import com.example.changellenge_client.Variables
 import com.example.changellenge_client.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -19,8 +20,6 @@ class ProfileFragment : Fragment() {
     private lateinit var profileViewModel: ProfileViewModel
     private var _binding: FragmentProfileBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -28,20 +27,19 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        profileViewModel =
-//            ViewModelProvider(this).get(ProfileViewModel::class.java)
+        profileViewModel =
+            ViewModelProvider(this).get(ProfileViewModel::class.java)
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNickname
-//        profileViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
+        val nickname: TextView = binding.textNickname
+        nickname.setText(Variables.nickname)
 
         val profileImage: ImageView = binding.imageView
 
         val status_text = binding.textStatus
+        status_text.setText(Variables.status)
 
         val edit_button: Button = binding.buttonEditProfile
         edit_button.setOnClickListener {

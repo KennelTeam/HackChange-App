@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.changellenge_client.R
+import com.example.changellenge_client.Variables
 import com.example.changellenge_client.databinding.FragmentEditProfileBinding
 
 class EditProfileFragment : Fragment() {
@@ -29,17 +30,21 @@ class EditProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        profileViewModel =
-//            ViewModelProvider(this).get(EditProfileViewModel::class.java)
+        profileViewModel =
+            ViewModelProvider(this).get(EditProfileViewModel::class.java)
 
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
+        val nickname_edit = binding.editNickname
         val status_edit = binding.editStatus
 
         val edit_button: Button = binding.buttonConfirm
         edit_button.setOnClickListener {
             Log.i("test-logs", "Profile Edited")
+            Variables.nickname = nickname_edit.text.toString()
+            Variables.status = status_edit.text.toString()
             Navigation.findNavController(root).navigate(R.id.action_profile_edited)
         }
 
