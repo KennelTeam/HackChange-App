@@ -25,10 +25,6 @@ class CommentFragment : Fragment() {
         _binding = FragmentCommentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.postText
-//        postViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
 
         return root
     }
