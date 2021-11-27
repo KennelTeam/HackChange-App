@@ -1,4 +1,4 @@
-package com.example.changellenge_client
+package com.kennelteam.hack_change
 
 import android.content.Context
 import android.util.Log

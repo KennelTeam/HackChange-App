@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import com.example.changellenge_client.R
+import com.kennelteam.hack_change.R
 import java.util.*
 
 class CustomListViewAdapter(items: ArrayList<Attraction>, ctx: Context) :

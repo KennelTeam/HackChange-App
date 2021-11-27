@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.navigation.fragment.findNavController
-import com.example.changellenge_client.R
-import com.example.changellenge_client.databinding.FragmentCompaniesBinding
+import com.kennelteam.hack_change.R
+import com.kennelteam.hack_change.databinding.FragmentCompaniesBinding
 import com.kennelteam.hack_change.ui.flow.Attraction
 import com.kennelteam.hack_change.ui.flow.CustomListViewAdapter
 

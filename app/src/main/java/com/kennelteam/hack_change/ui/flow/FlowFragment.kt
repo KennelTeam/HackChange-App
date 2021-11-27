@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.changellenge_client.databinding.FragmentFlowBinding
+import com.kennelteam.hack_change.databinding.FragmentFlowBinding
 import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
-import com.example.changellenge_client.R
+import com.kennelteam.hack_change.R
 
 class FlowFragment : Fragment() {
 

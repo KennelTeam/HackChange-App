@@ -8,8 +8,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.changellenge_client.R
-import com.example.changellenge_client.databinding.ActivityMainBinding
+import com.kennelteam.hack_change.R
+import com.kennelteam.hack_change.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

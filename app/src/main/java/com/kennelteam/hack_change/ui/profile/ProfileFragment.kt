@@ -10,9 +10,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.example.changellenge_client.R
+import com.kennelteam.hack_change.R
 import com.kennelteam.hack_change.Variables
-import com.example.changellenge_client.databinding.FragmentProfileBinding
+import com.kennelteam.hack_change.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
 

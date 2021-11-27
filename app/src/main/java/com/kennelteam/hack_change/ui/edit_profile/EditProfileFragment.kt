@@ -9,9 +9,9 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.example.changellenge_client.R
+import com.kennelteam.hack_change.R
 import com.kennelteam.hack_change.Variables
-import com.example.changellenge_client.databinding.FragmentEditProfileBinding
+import com.kennelteam.hack_change.databinding.FragmentEditProfileBinding
 
 class EditProfileFragment : Fragment() {
 

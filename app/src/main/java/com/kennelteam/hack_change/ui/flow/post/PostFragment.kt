@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.changellenge_client.databinding.FragmentPostBinding
+import com.kennelteam.hack_change.databinding.FragmentPostBinding
 
 class PostFragment : Fragment() {
 
