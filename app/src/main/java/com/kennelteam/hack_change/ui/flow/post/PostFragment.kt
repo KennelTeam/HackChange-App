@@ -24,6 +24,7 @@ import kotlin.concurrent.schedule
 
 class PostFragment : Fragment() {
     private val prevView: PostFlowViewModel by activityViewModels()
+    private val postView: PostViewModel by activityViewModels()
     private lateinit var postViewModel: PostViewModel
     private var _binding: FragmentPostBinding? = null
 
@@ -41,6 +42,16 @@ class PostFragment : Fragment() {
         _binding = FragmentPostBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
+
+        val user_name = binding.userId
+        user_name.setOnClickListener {
+            Networker.getPost(prevView.selectedPost.value!!, {
+                postView.data.value = it.author.user_id
+                this.findNavController().navigate(
+                    R.id.action_navigation_post_to_user
+                )
+            }, { Log.i("Test!!! - error", it.error_desc) })
+        }
 
         return root
     }
@@ -71,10 +82,10 @@ class PostFragment : Fragment() {
 
             binding.commentsListView.adapter = commentsListViewAdapter
 
-            /*binding.commentsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
-                this.findNavController().navigate(R.id.action_postFlowFragment_to_postFragment)
+            binding.commentsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
+                this.findNavController().navigate(R.id.action_navigation_post_to_user)
             }
-*/
+
             binding.sendCommentButton.setOnClickListener {
                 Log.i("test", "send comment: ${binding.commentText.text}")
 

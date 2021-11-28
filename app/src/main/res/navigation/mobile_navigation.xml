@@ -129,5 +129,9 @@
         android:id="@+id/postFragment"
         android:name="com.kennelteam.hack_change.ui.flow.post.PostFragment"
         android:label="fragment_post"
-        tools:layout="@layout/fragment_post" />
+        tools:layout="@layout/fragment_post" >
+        <action
+        android:id="@+id/action_navigation_post_to_user"
+            app:destination="@id/userPageFragment"/>
+    </fragment>
 </navigation>
