@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.kennelteam.hack_change.databinding.FragmentToolsBinding
-import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
@@ -24,39 +22,35 @@ class ToolsFragment : Fragment() {
 
     private val binding get() = _binding!!
 
+    private var toolsList = emptyArray<Tool>()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        //flowViewModel = ViewModelProvider(this)[FlowViewModel::class.java]
 
         _binding = FragmentToolsBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
 
-        var toolsList = emptyArray<String>(
-//            "Акции", "Облигации", "Валюта", "Деривативы", "Драгоценные металлы", "Фонды"
-        )
-
         Networker.getAllInstruments({
             Log.i("Test!!! - success", "nice")
             it.forEach {el -> Log.i("Test!!! - success", el.name) }
 
-            toolsList = it.map { el -> el.name }.toTypedArray()
+            toolsList = it.map { el -> Tool(el.name, el.details) }.toTypedArray()
 
-            val toolsAdapter = context?.let { ArrayAdapter(it, android.R.layout.simple_list_item_1, toolsList) }
+            val toolsAdapter = context?.let { ToolsListViewAdapter(toolsList, it) }
 
             binding.toolsListView.adapter = toolsAdapter
 
             binding.toolsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
-                Log.i("aaa", it[itemIndex].name)
                 toolsViewModel.selectedInstrument = MutableLiveData(it[itemIndex].instrument_id)
-                this.findNavController().navigate(R.id.action_navigation_flow_to_companiesFragment)
+                this.findNavController().navigate(R.id.action_navigation_tools_to_companiesFragment)
             }
         }, {Log.i("Test!!! - error", it.error_desc)})
 
-
+        binding.toolsListView.dividerHeight = 50
 
         return root
     }

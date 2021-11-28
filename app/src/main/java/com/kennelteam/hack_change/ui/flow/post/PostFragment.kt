@@ -32,28 +32,11 @@ class PostFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        setMainText()
         loadComments()
         _binding = FragmentPostBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
-
-        val commentsListViewAdapter = context?.let { CommentListViewAdapter(commentList, it) }
-
-        binding.commentsListView.adapter = commentsListViewAdapter
-
-        binding.commentsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
-            this.findNavController().navigate(R.id.action_postFlowFragment_to_postFragment)
-        }
-
-
-        binding.sendCommentButton.setOnClickListener {
-            Log.i("test", "send comment: ${binding.commentText.text}")
-
-            Networker.addComment(prevView.selectedPost.value!!, binding.commentText.text.toString(),
-                { Log.i("Test!!! - error", it.error_desc)})
-
-            binding.commentText.text.clear()
-        }
 
         return root
     }
@@ -63,14 +46,39 @@ class PostFragment : Fragment() {
         _binding = null
     }
 
+    private fun setMainText() {
+        Networker.getPost(prevView.selectedPost.value!!, {
+            binding.text.setText(it.text)
+            binding.userId.setText(it.author.nickname)
+            binding.topicPost.setText(it.topic.title)
+        }, { Log.i("Test!!! - error", it.error_desc) })
+    }
     override fun onResume() {
         super.onResume()
         (activity as MainActivity).setActionBarTitle("Пост")
     }
 
     private fun loadComments() {
+        commentList.clear()
         Networker.getCommentsByPost(prevView.selectedPost.value!!, {
             commentList.addAll(it.map { el -> Comment(el.comment_id, el.commenter.nickname, el.text) })
-        }, { Log.i("Test!!! - error", it.error_desc) })
+
+            val commentsListViewAdapter = context?.let { CommentListViewAdapter(commentList, it) }
+
+            binding.commentsListView.adapter = commentsListViewAdapter
+
+            binding.commentsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
+                this.findNavController().navigate(R.id.action_postFlowFragment_to_postFragment)
+            }
+
+            binding.sendCommentButton.setOnClickListener {
+                Log.i("test", "send comment: ${binding.commentText.text}")
+
+                Networker.addComment(prevView.selectedPost.value!!, binding.commentText.text.toString(),
+                    { Log.i("Test!!! - error", it.error_desc)})
+
+                binding.commentText.text.clear()
+            }
+       }, { Log.i("Test!!! - error", it.error_desc) })
     }
 }

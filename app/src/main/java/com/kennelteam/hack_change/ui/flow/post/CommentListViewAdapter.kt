@@ -27,7 +27,7 @@ class CommentListViewAdapter(items: ArrayList<Comment>, ctx: Context) :
             view = inflater.inflate(R.layout.comment_list_view_item, viewGroup, false)
 
             viewHolder = CommentItemViewHolder()
-            viewHolder.userName = view!!.findViewById<View>(R.id.theme) as TextView
+            viewHolder.userName = view!!.findViewById<View>(R.id.UserName) as TextView
             viewHolder.text = view.findViewById<View>(R.id.text) as TextView
         } else {
             viewHolder = view.tag as CommentItemViewHolder

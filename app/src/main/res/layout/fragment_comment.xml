@@ -16,10 +16,10 @@
         android:text="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/theme" />
+        app:layout_constraintTop_toBottomOf="@+id/UserName" />
 
     <TextView
-        android:id="@+id/theme"
+        android:id="@+id/UserName"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
