@@ -50,7 +50,7 @@ class ToolsFragment : Fragment() {
             }
         }, {Log.i("Test!!! - error", it.error_desc)})
 
-        binding.toolsListView.dividerHeight = 50
+//        binding.toolsListView.dividerHeight = 50
 
         return root
     }
