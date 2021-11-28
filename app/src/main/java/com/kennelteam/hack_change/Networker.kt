@@ -149,6 +149,26 @@ class Networker {
             }, onFail)
         }
 
+        fun subscribe(user_id: Int, onFail: (e: Error) -> Unit) {
+            sendRequest("subscribe", mapOf("user_id" to user_id.toString()), {}, onFail)
+        }
+
+        fun unsubscribe(user_id: Int, onFail: (e: Error) -> Unit) {
+            sendRequest("unsubscribe", mapOf("user_id" to user_id.toString()), {}, onFail)
+        }
+
+        fun getSubscriptionsPosts(onSuccess: (posts: List<PostExtended>) -> Unit,
+                                  onFail: (e: Error) -> Unit) {
+            sendRequest("mySubscriptionsPosts", emptyMap(), {
+                try {
+                    val data = jsonFormat.decodeFromString<Posts>(it)
+                    onSuccess(data.posts)
+                } catch (e: Exception) {
+                    onFail(Error(-1, e.message!!))
+                }
+            }, onFail)
+        }
+
         // contract: succsess_callback receives valid json string
         private fun sendRequest(page: String, params: Map<String, String>,
                                 succsess_callback: (a: String) -> Unit,

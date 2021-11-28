@@ -41,9 +41,6 @@ class ProfileFragment : Fragment() {
 
         val profileImage: ImageView = binding.imageView
 
-        val status_text = binding.textStatus
-        status_text.setText(Variables.status)
-
         val edit_button: Button = binding.buttonEditProfile
         edit_button.setOnClickListener {
             Navigation.findNavController(root).navigate(R.id.action_edit_profile)

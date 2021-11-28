@@ -9,6 +9,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.kennelteam.hack_change.AccessTokenManager
 import com.kennelteam.hack_change.Networker
 import com.kennelteam.hack_change.R
 import com.kennelteam.hack_change.Variables
@@ -36,7 +37,12 @@ class EditProfileFragment : Fragment() {
 
 
         val nickname_edit = binding.editNickname
-        val status_edit = binding.editStatus
+        Networker.getProfile(AccessTokenManager.get_id(), {
+                user, postIds ->  if (nickname_edit.text.toString() == "") {
+            nickname_edit.setText(user.nickname)
+        }
+        }, { Log.i("Test!!! - error", it.error_desc) })
+        //val status_edit = binding.editStatus
 
         val edit_button: Button = binding.buttonConfirm
         edit_button.setOnClickListener {
