@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:text="Логин"
+        android:text="Регистрация"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,49 +31,47 @@
         app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
 
     <EditText
-        android:id="@+id/regNicknameInput"
+        android:id="@+id/register_nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="qweopwoeq"
+        android:hint="NickName"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/regPasswordInput"
+        android:id="@+id/register_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="qweopwoeq"
-        android:inputType="textPersonName"
+        android:hint="Password"
+        android:inputType="textPassword"
         android:minHeight="48dp"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regNicknameInput" />
+        app:layout_constraintTop_toBottomOf="@+id/register_nickname" />
 
     <Button
-        android:id="@+id/registerButton"
+        android:id="@+id/register_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/label_background_2"
-        android:text="Войти!"
+        android:text="Регистрация!"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regPasswordInput" />
+        app:layout_constraintTop_toBottomOf="@+id/register_password" />
 
     <Button
-        android:id="@+id/switchToLoginButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/switch_to_login_button"
+        android:layout_width="60dp"
         android:layout_height="40dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="-16dp"
@@ -85,10 +83,10 @@
         android:paddingEnd="2dp"
         android:paddingRight="2dp"
         android:paddingBottom="2dp"
-        android:text="Регистрация"
+        android:text="Войти"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/regPasswordInput"
-        app:layout_constraintTop_toBottomOf="@+id/registerButton"
+        app:layout_constraintEnd_toEndOf="@+id/register_password"
+        app:layout_constraintTop_toBottomOf="@+id/register_button"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
@@ -96,9 +94,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Нет аккаунта?"
+        android:text="Уже есть аккаунт?"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/switchToLoginButton"
-        app:layout_constraintTop_toTopOf="@+id/switchToLoginButton" />
+        app:layout_constraintEnd_toStartOf="@+id/switch_to_login_button"
+        app:layout_constraintTop_toTopOf="@+id/switch_to_login_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
