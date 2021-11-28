@@ -62,7 +62,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/investorName"
+        android:id="@+id/userNicknameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -93,9 +93,9 @@
         android:text="@dartveider"
         android:textColor="@color/accent"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/investorName"
-        app:layout_constraintStart_toStartOf="@+id/investorName"
-        app:layout_constraintTop_toBottomOf="@+id/investorName" />
+        app:layout_constraintEnd_toEndOf="@+id/userNicknameLabel"
+        app:layout_constraintStart_toStartOf="@+id/userNicknameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/userNicknameLabel" />
 
     <TextView
         android:id="@+id/myStatus"
