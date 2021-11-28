@@ -1,6 +1,7 @@
 package com.kennelteam.hack_change.ui.flow.post_flow
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

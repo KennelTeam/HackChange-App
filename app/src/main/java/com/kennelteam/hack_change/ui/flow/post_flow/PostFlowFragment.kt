@@ -1,7 +1,9 @@
 package com.kennelteam.hack_change.ui.flow.post_flow
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +13,12 @@ import androidx.navigation.fragment.findNavController
 import com.kennelteam.hack_change.databinding.FragmentPostFlowBinding
 import com.kennelteam.hack_change.ui.flow.Post
 import com.kennelteam.hack_change.R
+import android.view.MotionEvent
+
+import android.view.View.OnTouchListener
+
+
+
 
 class PostFlowFragment : Fragment() {
 
@@ -21,6 +29,7 @@ class PostFlowFragment : Fragment() {
 
     private val binding get() = _binding!!
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,6 +46,8 @@ class PostFlowFragment : Fragment() {
         val postListViewAdapter = context?.let { PostListViewAdapter(postList, it) }
 
         binding.postsListView.adapter = postListViewAdapter
+
+//        binding.postsListView.setOnTouchListener(OnTouchListener { v, event -> event.action == MotionEvent.ACTION_MOVE })
 
         binding.postsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
             this.findNavController().navigate(R.id.action_postFlowFragment_to_postFragment)
