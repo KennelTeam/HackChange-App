@@ -18,6 +18,10 @@ import com.kennelteam.hack_change.ui.flow.Comment
 import com.kennelteam.hack_change.ui.flow.comment.CommentListViewAdapter
 import com.kennelteam.hack_change.ui.flow.post_flow.PostFlowViewModel
 
+import java.util.Timer
+import kotlin.concurrent.schedule
+
+
 class PostFragment : Fragment() {
     private val prevView: PostFlowViewModel by activityViewModels()
     private lateinit var postViewModel: PostViewModel
@@ -67,10 +71,10 @@ class PostFragment : Fragment() {
 
             binding.commentsListView.adapter = commentsListViewAdapter
 
-            binding.commentsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
+            /*binding.commentsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
                 this.findNavController().navigate(R.id.action_postFlowFragment_to_postFragment)
             }
-
+*/
             binding.sendCommentButton.setOnClickListener {
                 Log.i("test", "send comment: ${binding.commentText.text}")
 
@@ -78,6 +82,10 @@ class PostFragment : Fragment() {
                     { Log.i("Test!!! - error", it.error_desc)})
 
                 binding.commentText.text.clear()
+                Timer("update_comments", false).schedule(1000) {
+                    loadComments()
+                }
+
             }
        }, { Log.i("Test!!! - error", it.error_desc) })
     }
