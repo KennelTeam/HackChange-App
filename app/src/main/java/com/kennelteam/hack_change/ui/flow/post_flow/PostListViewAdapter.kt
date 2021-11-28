@@ -29,8 +29,8 @@ class PostListViewAdapter(items: List<Post>, ctx: Context) :
             view_ = inflater.inflate(R.layout.post_list_view_item, viewGroup, false)
 
             viewHolder = PostItemViewHolder()
-            viewHolder.postTheme = view_!!.findViewById<View>(R.id.UserName) as TextView
-            viewHolder.userId = view_.findViewById<View>(R.id.topic) as TextView
+            viewHolder.postTheme = view_!!.findViewById<View>(R.id.topic) as TextView
+            viewHolder.userId = view_.findViewById<View>(R.id.UserName) as TextView
             viewHolder.text = view_.findViewById<View>(R.id.text) as TextView
         } else {
             viewHolder = view_.tag as PostItemViewHolder

@@ -55,7 +55,7 @@ class CreatePostFragment : Fragment() {
 
         val completeButton: Button = binding.buttonCompletePost
         completeButton.setOnClickListener {
-            var topicId = -1
+            var topicId = 0
             topics.forEach {
                 if (it.title == themeChoice.selectedItem.toString()) {
                     topicId = it.topic_id
@@ -84,9 +84,11 @@ class CreatePostFragment : Fragment() {
 
         var indexOfSelection = 0
         for (i in 0..topics.size) {
-            if (topics[i].topic_id == prevView.selectedTopic.value) {
-                indexOfSelection = i
-                break
+            if (prevView != null && prevView.selectedTopic != null) {
+                if (topics[i].topic_id == prevView.selectedTopic.value) {
+                    indexOfSelection = i
+                    break
+                }
             }
         }
 

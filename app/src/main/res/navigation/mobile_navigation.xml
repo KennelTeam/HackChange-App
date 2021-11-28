@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_navigation_user_posts_to_userPageFragment"
             app:destination="@id/userPageFragment" />
+        <action
+            android:id="@+id/action_navigation_user_posts_to_createPost"
+            app:destination="@id/createPostFragment"/>
     </fragment>
 
     <fragment
@@ -70,7 +73,7 @@
     <fragment
         android:id="@+id/companiesFragment"
         android:name="com.kennelteam.hack_change.ui.flow.companies.CompaniesFragment"
-        android:label="fragment_companies"
+        android:label="Выбор поста"
         tools:layout="@layout/fragment_companies" >
         <action
             android:id="@+id/action_companiesFragment_to_postFlowFragment"
@@ -79,7 +82,7 @@
     <fragment
         android:id="@+id/postFlowFragment"
         android:name="com.kennelteam.hack_change.ui.flow.post_flow.PostFlowFragment"
-        android:label="fragment_post_flow"
+        android:label="Обсуждение"
         tools:layout="@layout/fragment_post_flow" >
         <action
             android:id="@+id/action_navigation_flow_to_create"
@@ -88,7 +91,7 @@
     <fragment
         android:id="@+id/login"
         android:name="com.kennelteam.hack_change.ui.login.Login"
-        android:label="login_fragment"
+        android:label="Вход"
         tools:layout="@layout/login_fragment">
         <action
             android:id="@+id/login_to_flow"
@@ -101,7 +104,7 @@
     <fragment
         android:id="@+id/setup"
         android:name="com.kennelteam.hack_change.ui.setup.SetupFragment"
-        android:label="setup_fragment"
+        android:label="Загрузка..."
         tools:layout="@layout/setup_fragment">
         <action
             android:id="@+id/setup_to_login"
@@ -114,7 +117,7 @@
     <fragment
         android:id="@+id/createPostFragment"
         android:name="com.kennelteam.hack_change.ui.create_post.CreatePostFragment"
-        android:label="fragment_create_post"
+        android:label="Создание поста"
         tools:layout="@layout/fragment_create_post" >
         <action
             android:id="@+id/action_end_create_post"
@@ -123,7 +126,7 @@
     <fragment
         android:id="@+id/userPageFragment"
         android:name="com.kennelteam.hack_change.ui.user_profile.UserPageFragment"
-        android:label="UserPageFragment" >
+        android:label="Страница пользователя" >
         <action
             android:id="@+id/action_userPageFragment_to_navigation_user_posts"
             app:destination="@id/navigation_user_posts"
@@ -138,7 +141,7 @@
     <fragment
         android:id="@+id/postFragment"
         android:name="com.kennelteam.hack_change.ui.flow.post.PostFragment"
-        android:label="fragment_post"
+        android:label="Обсуждение"
         tools:layout="@layout/fragment_post" >
         <action
         android:id="@+id/action_navigation_post_to_user"
@@ -147,7 +150,7 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.kennelteam.hack_change.ui.login.RegisterFragment"
-        android:label="RegisterFragment"
+        android:label="Регистрация"
         tools:layout="@layout/register_fragment">
         <action
             android:id="@+id/action_registerFragment_to_login"

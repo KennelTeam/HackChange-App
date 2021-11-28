@@ -9,6 +9,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 
+
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
@@ -221,10 +222,6 @@ class Networker {
                 }
             }
         }
-
-//        fun sendImage(image: ByteArray) {
-//            StringRequest(Request.Method.POST, serverAddress + "uploadAvatar", )
-//        }
 
         private fun sendRequest(url: String, callback: (a: String?) -> Unit) {
             try {

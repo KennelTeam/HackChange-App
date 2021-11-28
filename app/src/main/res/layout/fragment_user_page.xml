@@ -8,49 +8,27 @@
     tools:context="com.kennelteam.hack_change.ui.home.HomeFragment">
 
     <TextView
-        android:id="@+id/mySubscribers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="300"
-        android:textColor="@color/accent"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="@+id/textView9" />
-
-    <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="35dp"
         android:text="Подписчики:"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="48dp"
-        android:text="Рейтинг:"
-        android:textColor="@color/black"
-        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/subscribeButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userNicknameLabel" />
 
     <TextView
-        android:id="@+id/myrating"
+        android:id="@+id/mySubscribers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="12"
-        android:textColor="@color/positive_events_1"
+        android:layout_marginStart="8dp"
+        android:text="..."
+        android:textColor="@color/accent"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@+id/textView9" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/myAvatar"
@@ -67,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Энакин Скайуокер"
+        android:text="Загрузка..."
         android:textColor="@color/black"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +56,7 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="32dp"
         android:text="Публикации"
         android:textColor="@color/black"
         android:textSize="32sp"
@@ -95,5 +73,17 @@
         android:text="Подписаться"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userNicknameLabel" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:inputType="textLongMessage|textMultiLine"
+        android:text="Смахните вверх для просмотра новостей пользователя"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

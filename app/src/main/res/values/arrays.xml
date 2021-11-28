@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="themes">
-        <item>Tesla</item>
-        <item>Google</item>
-        <item>Yandex</item>
+        <item>Загрузка...</item>
     </string-array>
 </resources>

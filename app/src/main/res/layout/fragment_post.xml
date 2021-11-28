@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/user_id"
+            android:id="@+id/topicPost"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
             android:layout_marginStart="51dp"
@@ -38,7 +38,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="57dp"
             android:paddingBottom="5dp"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus sed viverra tellus in hac habitasse platea. Egestas tellus rutrum tellus pellentesque. Id diam vel quam elementum."
+            android:text="Загрузка..."
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,13 +46,14 @@
             app:lineHeight="14.06dp" />
 
         <TextView
-            android:id="@+id/theme"
+            android:id="@+id/user_id"
             android:layout_width="233dp"
             android:layout_height="19dp"
             android:layout_marginStart="51dp"
             android:layout_marginTop="8dp"
+            android:clickable="true"
             android:fontFamily="sans-serif"
-            android:text="Как изменится курс?"
+            android:text="Загрузка..."
             android:textColor="@color/black"
             android:textSize="16dp"
             android:textStyle="bold"
@@ -69,63 +70,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
-
-        <LinearLayout
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="242dp"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/upVote"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:layout_gravity="right"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/arrow_up" />
-
-                <ImageView
-                    android:id="@+id/downVote"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:layout_gravity="right"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/arrow_down" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/numberReactionsLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="5"
-                android:textColor="#28282D"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/topicPost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="33dp"
-            android:text="@Tesla"
-            android:textColor="#FFA000"
-            app:layout_constraintStart_toEndOf="@+id/user_id"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -172,9 +116,11 @@
         android:id="@+id/send_comment_button"
         android:layout_width="90dp"
         android:layout_height="40dp"
+        android:layout_marginTop="6dp"
         android:text="send"
         app:layout_constraintBottom_toBottomOf="@+id/comment_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/comment_text" />
+        app:layout_constraintStart_toEndOf="@+id/comment_text"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

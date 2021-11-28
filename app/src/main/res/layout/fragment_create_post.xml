@@ -29,9 +29,11 @@
 
     <TextView
         android:id="@+id/themeLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="42dp"
+        android:layout_height="24dp"
         android:text="Тема:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerThemeChoice"
         app:layout_constraintEnd_toStartOf="@+id/spinnerThemeChoice"
         app:layout_constraintTop_toTopOf="@+id/spinnerThemeChoice" />
 
