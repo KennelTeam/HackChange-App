@@ -20,11 +20,11 @@
 
     <fragment
         android:id="@+id/navigation_flow"
-        android:name="com.kennelteam.hack_change.ui.flow.FlowFragment"
+        android:name="com.kennelteam.hack_change.ui.flow.ToolsFragment"
         android:label="@string/title_flow"
-        tools:layout="@layout/fragment_flow" >
+        tools:layout="@layout/fragment_tools" >
         <action
-            android:id="@+id/action_navigation_flow_to_companiesFragment"
+            android:id="@+id/action_navigation_tools_to_companiesFragment"
             app:destination="@id/companiesFragment" />
     </fragment>
 

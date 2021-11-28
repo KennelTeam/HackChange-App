@@ -13,17 +13,14 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
-import com.kennelteam.hack_change.Networker
-import com.kennelteam.hack_change.PostTopic
-import com.kennelteam.hack_change.R
-import com.kennelteam.hack_change.Topics
+import com.kennelteam.hack_change.*
 import com.kennelteam.hack_change.databinding.FragmentCompaniesBinding
-import com.kennelteam.hack_change.ui.flow.FlowViewModel
+import com.kennelteam.hack_change.ui.flow.ToolsViewModel
 import com.kennelteam.hack_change.ui.flow.Post
 
 class CompaniesFragment : Fragment() {
 
-    private val prevViewModel: FlowViewModel by activityViewModels()
+    private val prevViewModel: ToolsViewModel by activityViewModels()
     private val companiesViewModel: CompaniesViewModel by activityViewModels()
     private var _binding: FragmentCompaniesBinding? = null
 
@@ -69,6 +66,12 @@ class CompaniesFragment : Fragment() {
 
         return root
     }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).setActionBarTitle("Компании")
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

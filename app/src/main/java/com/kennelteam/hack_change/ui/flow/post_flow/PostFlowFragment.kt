@@ -20,7 +20,6 @@ import com.kennelteam.hack_change.ui.flow.companies.CompaniesViewModel
 import androidx.appcompat.app.AppCompatActivity
 import com.kennelteam.hack_change.MainActivity
 
-
 class PostFlowFragment : Fragment() {
 
     private val prevView: CompaniesViewModel by activityViewModels()
@@ -28,7 +27,6 @@ class PostFlowFragment : Fragment() {
     private var _binding: FragmentPostFlowBinding? = null
 
     private var postList = ArrayList<Post>()
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -42,18 +40,12 @@ class PostFlowFragment : Fragment() {
 
         val root: View = binding.root
 
-        val postListViewAdapter = context?.let { PostListViewAdapter(postList, it) }
-
-        binding.addPostButton.setOnClickListener( {
-            this.findNavController().navigate(R.id.action_navigation_flow_to_create)
-        } )
-
         return root
     }
 
     override fun onResume() {
         super.onResume()
-        (activity as MainActivity).setActionBarTitle("Your title")
+        (activity as MainActivity).setActionBarTitle("Обсуждение")
     }
 
     override fun onDestroyView() {
@@ -69,6 +61,8 @@ class PostFlowFragment : Fragment() {
             val postListViewAdapter = context?.let { PostListViewAdapter(postList, it) }
 
             binding.postsListView.adapter = postListViewAdapter
+
+            binding.postsListView.dividerHeight = 50
 
             binding.postsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
                 this.postFlowViewModel.selectedPost = MutableLiveData(postList[itemIndex].id)
