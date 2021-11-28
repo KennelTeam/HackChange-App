@@ -1,25 +1,22 @@
 package com.kennelteam.hack_change.ui.login
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.kennelteam.hack_change.*
-import com.kennelteam.hack_change.databinding.LoginFragmentBinding
-import javax.xml.parsers.FactoryConfigurationError
+import com.kennelteam.hack_change.databinding.RegisterFragmentBinding
 
-class Login : Fragment() {
+class RegisterFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = Login()
-    }
-    private var _binding: LoginFragmentBinding? = null
-    private lateinit var viewModel: LoginViewModel
+    private val postFlowViewModel: RegisterViewModel by activityViewModels()
+    private var _binding: RegisterFragmentBinding? = null
 
     private val binding get() = _binding!!
 
@@ -27,39 +24,45 @@ class Login : Fragment() {
     private var password = ""
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = LoginFragmentBinding.inflate(inflater, container, false)
+    ): View {
 
-        binding.loginNickname.addTextChangedListener {
+        _binding = RegisterFragmentBinding.inflate(inflater, container, false)
+
+        val root: View = binding.root
+
+        binding.registerNickname.addTextChangedListener {
             nickname = it.toString()
         }
 
-        binding.loginPassword.addTextChangedListener {
+        binding.registerPassword.addTextChangedListener {
             password = it.toString()
         }
 
-
-        binding.loginButton.setOnClickListener {
-            if (validateInput()) {
-                Networker.login(nickname, password,
+        binding.registerButton.setOnClickListener {
+            if(validateInput()) {
+                Networker.register(nickname, password,
                     { id: Int, token: String -> success(LoginInfo(id, token)) }, { fail(it) })
             }
         }
 
-        binding.switchToRegisterButton.setOnClickListener {
-            this.findNavController().navigate(R.id.action_login_to_registerFragment)
+        binding.switchToLoginButton.setOnClickListener {
+            this.findNavController().navigate(R.id.action_registerFragment_to_login)
         }
 
-//        binding.registerButton.setOnClickListener {
-//            if(validateInput()) {
-//                Networker.register(nickname, password,
-//                    { id: Int, token: String -> success(LoginInfo(id, token)) }, { fail(it) })
-//            }
-//        }
+        return root
+    }
 
-        return binding.root
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).setActionBarTitle("Регистрация")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     fun validateInput(): Boolean {
@@ -100,8 +103,7 @@ class Login : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+//        postFlowViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }
