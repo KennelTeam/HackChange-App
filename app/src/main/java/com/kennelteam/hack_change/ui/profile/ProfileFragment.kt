@@ -9,17 +9,16 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import com.kennelteam.hack_change.AccessTokenManager
-import com.kennelteam.hack_change.Networker
-import com.kennelteam.hack_change.R
-import com.kennelteam.hack_change.Variables
+import com.kennelteam.hack_change.*
 import com.kennelteam.hack_change.databinding.FragmentProfileBinding
+import com.kennelteam.hack_change.ui.flow.companies.PrePostFlowViewModel
 
 class ProfileFragment : Fragment() {
-
+    private val prePostsView: PrePostFlowViewModel by activityViewModels()
     private lateinit var profileViewModel: ProfileViewModel
     private var _binding: FragmentProfileBinding? = null
 
@@ -52,7 +51,14 @@ class ProfileFragment : Fragment() {
         }
 
         Networker.getProfile(AccessTokenManager.get_id(),
-            {user, postIds -> binding.textNickname.setText(user.nickname) },
+            {user: UserInfo, postIds: List<Int> -> binding.textNickname.setText(user.nickname)
+                postIds.forEach { el ->
+                    Networker.getPost(el,
+                        {prePostsView.postsToShow.value!!.add(it)},
+                        {Log.i("Test!!! - error", it.error_desc)}
+                    )
+                }
+            },
             { Log.i("Test!!! - error", it.error_desc)})
 
         return root

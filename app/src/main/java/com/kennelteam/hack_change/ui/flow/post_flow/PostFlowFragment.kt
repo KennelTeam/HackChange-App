@@ -1,6 +1,5 @@
 package com.kennelteam.hack_change.ui.flow.post_flow
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,19 +9,17 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
-import androidx.appcompat.app.ActionBar
 import androidx.navigation.fragment.findNavController
 import com.kennelteam.hack_change.Networker
 import com.kennelteam.hack_change.databinding.FragmentPostFlowBinding
 import com.kennelteam.hack_change.ui.flow.Post
 import com.kennelteam.hack_change.R
-import com.kennelteam.hack_change.ui.flow.companies.CompaniesViewModel
-import androidx.appcompat.app.AppCompatActivity
+import com.kennelteam.hack_change.ui.flow.companies.PrePostFlowViewModel
 import com.kennelteam.hack_change.MainActivity
 
 class PostFlowFragment : Fragment() {
 
-    private val prevView: CompaniesViewModel by activityViewModels()
+    private val prevView: PrePostFlowViewModel by activityViewModels()
     private val postFlowViewModel: PostFlowViewModel by activityViewModels()
     private var _binding: FragmentPostFlowBinding? = null
 
@@ -59,7 +56,7 @@ class PostFlowFragment : Fragment() {
 
     private fun loadPosts() {
         postList.clear()
-        val selectedTopic = prevView.selectedTopic.value!!
+        /*val selectedTopic = prevView.selectedTopic.value!!
         Networker.postsByTopic(selectedTopic, {
             postList.addAll(it.map { el -> Post(el.post_id, el.topic.title, el.author.nickname, el.text) })
             val postListViewAdapter = context?.let { PostListViewAdapter(postList, it) }
@@ -73,7 +70,8 @@ class PostFlowFragment : Fragment() {
                 this.findNavController().navigate(R.id.action_postFlowFragment_to_postFragment)
             }
 
-        }, {Log.i("Test!!! - error", it.error_desc)})
+        }, {Log.i("Test!!! - error", it.error_desc)})*/
+        postList.addAll(prevView.postsToShow.value!!.map { Post(it.post_id, it.topic.title, it.author.nickname, it.text) })
 
     }
 
