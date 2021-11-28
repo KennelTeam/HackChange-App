@@ -157,8 +157,7 @@ class Networker {
             sendRequest("unsubscribe", mapOf("user_id" to user_id.toString()), {}, onFail)
         }
 
-        fun getSubscriptionsPosts(onSuccess: (posts: List<PostExtended>) -> Unit,
-                                  onFail: (e: Error) -> Unit) {
+        fun getSubscriptionsPosts(onSuccess: (posts: List<PostExtended>) -> Unit, onFail: (e: Error) -> Unit) {
             sendRequest("mySubscriptionsPosts", emptyMap(), {
                 try {
                     val data = jsonFormat.decodeFromString<Posts>(it)

@@ -11,7 +11,7 @@ import com.kennelteam.hack_change.R
 import com.kennelteam.hack_change.ui.flow.Post
 import java.util.*
 
-class PostListViewAdapter(items: ArrayList<Post>, ctx: Context) :
+class PostListViewAdapter(items: List<Post>, ctx: Context) :
     ArrayAdapter<Post>(ctx, R.layout.post_list_view_item, items) {
 
     private class PostItemViewHolder {
