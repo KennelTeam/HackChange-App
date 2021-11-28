@@ -10,12 +10,16 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
+import androidx.appcompat.app.ActionBar
 import androidx.navigation.fragment.findNavController
 import com.kennelteam.hack_change.Networker
 import com.kennelteam.hack_change.databinding.FragmentPostFlowBinding
 import com.kennelteam.hack_change.ui.flow.Post
 import com.kennelteam.hack_change.R
 import com.kennelteam.hack_change.ui.flow.companies.CompaniesViewModel
+import androidx.appcompat.app.AppCompatActivity
+import com.kennelteam.hack_change.MainActivity
+
 
 class PostFlowFragment : Fragment() {
 
@@ -38,7 +42,14 @@ class PostFlowFragment : Fragment() {
 
         val root: View = binding.root
 
+        val postListViewAdapter = context?.let { PostListViewAdapter(postList, it) }
+
         return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).setActionBarTitle("Your title")
     }
 
     override fun onDestroyView() {
@@ -49,7 +60,7 @@ class PostFlowFragment : Fragment() {
     private fun loadPosts() {
         val selectedTopic = prevView.selectedTopic.value!!
         Networker.postsByTopic(selectedTopic, {
-            postList.addAll(it.map { el -> Post(el.post_id, el.author.nickname, el.text) })
+            postList.addAll(it.map { el -> Post(el.post_id, el.topic.title, el.author.nickname, el.text) })
             val postListViewAdapter = context?.let { PostListViewAdapter(postList, it) }
 
             binding.postsListView.adapter = postListViewAdapter
@@ -60,6 +71,7 @@ class PostFlowFragment : Fragment() {
             }
 
         }, {Log.i("Test!!! - error", it.error_desc)})
+        
     }
 
 }

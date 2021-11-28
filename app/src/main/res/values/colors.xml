@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="headings">#28282D</color>
+    <color name="accent">#3AB6EC</color>
+    <color name="positive_events_1">#1FBA66</color>
+    <color name="main_background">#F0F4F7</color>
+    <color name="label_background_2">#D8F0FB</color>
+
 </resources>
