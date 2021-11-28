@@ -4,6 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class FlowViewModel : ViewModel() {
+class ToolsViewModel : ViewModel() {
     var selectedInstrument: MutableLiveData<Int> = MutableLiveData(-1)
 }

@@ -49,7 +49,7 @@ class PostFlowFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        (activity as MainActivity).setActionBarTitle("Your title")
+        (activity as MainActivity).setActionBarTitle("Обсуждение")
     }
 
     override fun onDestroyView() {

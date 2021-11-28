@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.kennelteam.hack_change.MainActivity
 import com.kennelteam.hack_change.Networker
 import com.kennelteam.hack_change.R
 import com.kennelteam.hack_change.databinding.FragmentPostBinding
@@ -18,9 +19,8 @@ import com.kennelteam.hack_change.ui.flow.comment.CommentListViewAdapter
 import com.kennelteam.hack_change.ui.flow.post_flow.PostFlowViewModel
 
 class PostFragment : Fragment() {
-
     private val prevView: PostFlowViewModel by activityViewModels()
-    private val postViewModel: PostViewModel by activityViewModels()
+    private lateinit var postViewModel: PostViewModel
     private var _binding: FragmentPostBinding? = null
 
     private var commentList = ArrayList<Comment>()
@@ -61,6 +61,11 @@ class PostFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).setActionBarTitle("Пост")
     }
 
     private fun loadComments() {

@@ -8,18 +8,19 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.kennelteam.hack_change.databinding.FragmentFlowBinding
+import com.kennelteam.hack_change.databinding.FragmentToolsBinding
 import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
+import com.kennelteam.hack_change.MainActivity
 import com.kennelteam.hack_change.Networker
 import com.kennelteam.hack_change.R
 
-class FlowFragment : Fragment() {
+class ToolsFragment : Fragment() {
 
-    private val flowViewModel: FlowViewModel by activityViewModels()
-    private var _binding: FragmentFlowBinding? = null
+    private val toolsViewModel: ToolsViewModel by activityViewModels()
+    private var _binding: FragmentToolsBinding? = null
 
     private val binding get() = _binding!!
 
@@ -30,7 +31,7 @@ class FlowFragment : Fragment() {
     ): View {
         //flowViewModel = ViewModelProvider(this)[FlowViewModel::class.java]
 
-        _binding = FragmentFlowBinding.inflate(inflater, container, false)
+        _binding = FragmentToolsBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
 
@@ -50,7 +51,7 @@ class FlowFragment : Fragment() {
 
             binding.toolsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
                 Log.i("aaa", it[itemIndex].name)
-                flowViewModel.selectedInstrument = MutableLiveData(it[itemIndex].instrument_id)
+                toolsViewModel.selectedInstrument = MutableLiveData(it[itemIndex].instrument_id)
                 this.findNavController().navigate(R.id.action_navigation_flow_to_companiesFragment)
             }
         }, {Log.i("Test!!! - error", it.error_desc)})
@@ -58,6 +59,11 @@ class FlowFragment : Fragment() {
 
 
         return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).setActionBarTitle("Инструменты")
     }
 
     override fun onDestroyView() {
