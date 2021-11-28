@@ -40,6 +40,10 @@ class PostFlowFragment : Fragment() {
 
         val root: View = binding.root
 
+        binding.addPostButton.setOnClickListener {
+            this.findNavController().navigate(R.id.action_navigation_flow_to_create)
+        }
+
         return root
     }
 
