@@ -61,6 +61,8 @@ class PostFlowFragment : Fragment() {
 
             binding.postsListView.adapter = postListViewAdapter
 
+            binding.postsListView.dividerHeight = 50
+
             binding.postsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
                 this.postFlowViewModel.selectedPost = MutableLiveData(postList[itemIndex].id)
                 this.findNavController().navigate(R.id.action_postFlowFragment_to_postFragment)
