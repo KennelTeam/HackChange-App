@@ -84,7 +84,7 @@
         android:paddingTop="2dp"
         android:paddingEnd="2dp"
         android:paddingRight="2dp"
-        android:paddingBottom="dp"
+        android:paddingBottom="2dp"
         android:text="Войти"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/regPasswordInput"
