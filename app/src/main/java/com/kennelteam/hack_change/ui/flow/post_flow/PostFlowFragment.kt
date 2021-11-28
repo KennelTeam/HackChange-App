@@ -68,7 +68,7 @@ class PostFlowFragment : Fragment() {
         Log.i("Test!!! - qqqqqq", postListViewAdapter.toString())
         binding.postsListView.adapter = postListViewAdapter
         Log.i("Test!!! - qqqqqq", "adapter")
-        binding.postsListView.dividerHeight = 50
+        binding.postsListView.dividerHeight = 0
 
         Log.i("Test!!! - qqqqqq", "setting listeners")
         binding.postsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->

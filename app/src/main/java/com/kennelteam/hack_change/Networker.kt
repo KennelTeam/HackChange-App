@@ -222,6 +222,10 @@ class Networker {
             }
         }
 
+//        fun sendImage(image: ByteArray) {
+//            StringRequest(Request.Method.POST, serverAddress + "uploadAvatar", )
+//        }
+
         private fun sendRequest(url: String, callback: (a: String?) -> Unit) {
             try {
                 //Log.i("Test!!!", context!!.toString())

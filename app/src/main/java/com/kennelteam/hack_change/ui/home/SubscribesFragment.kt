@@ -67,8 +67,7 @@ class SubscribesFragment : Fragment() {
 
             binding.postListView.adapter = postListViewAdapter
 
-            binding.postListView.dividerHeight = 50
-
+//            binding.postListView.dividerHeight = 50
 
             binding.postListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
 //                this.postFlowViewModel.selectedPost = MutableLiveData(postList[itemIndex].id)

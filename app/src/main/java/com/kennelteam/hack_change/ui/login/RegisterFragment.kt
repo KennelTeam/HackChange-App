@@ -93,7 +93,7 @@ class RegisterFragment : Fragment() {
 
         snackbar.show()
 
-        this.findNavController().navigate(R.id.login_to_flow)
+        this.findNavController().navigate(R.id.reg_to_flow)
     }
 
     private fun fail(error: Error) {
