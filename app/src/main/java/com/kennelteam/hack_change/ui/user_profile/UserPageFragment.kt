@@ -1,16 +1,22 @@
 package com.kennelteam.hack_change.ui.user_profile
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import com.kennelteam.hack_change.OnSwipeTouchListener
 import com.kennelteam.hack_change.databinding.FragmentUserPageBinding
 import com.kennelteam.hack_change.R
+import java.lang.Exception
 
 class UserPageFragment : Fragment() {
 
@@ -20,6 +26,7 @@ class UserPageFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,6 +48,17 @@ class UserPageFragment : Fragment() {
                 buttonSubscribe.setText("Отписаться")
             }
         }
+
+        root.setOnTouchListener(object: OnSwipeTouchListener(context) {
+            override fun onSwipeTop() {
+                try {
+                Navigation.findNavController(root)
+                    .navigate(R.id.action_userPageFragment_to_navigation_user_posts)
+                } catch(e: Exception) {
+                    Log.i("TEST!!!", "$e")
+                }
+            }
+        })
 
         return root
     }
