@@ -31,7 +31,7 @@ class PostFlowFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        loadPosts()
+
         
         _binding = FragmentPostFlowBinding.inflate(inflater, container, false)
 
@@ -40,7 +40,7 @@ class PostFlowFragment : Fragment() {
         binding.addPostButton.setOnClickListener {
             this.findNavController().navigate(R.id.action_navigation_flow_to_create)
         }
-
+        loadPosts()
         return root
     }
 
@@ -59,20 +59,23 @@ class PostFlowFragment : Fragment() {
         /*val selectedTopic = prevView.selectedTopic.value!!
         Networker.postsByTopic(selectedTopic, {
             postList.addAll(it.map { el -> Post(el.post_id, el.topic.title, el.author.nickname, el.text) })
-            val postListViewAdapter = context?.let { PostListViewAdapter(postList, it) }
 
-            binding.postsListView.adapter = postListViewAdapter
-
-            binding.postsListView.dividerHeight = 50
-
-            binding.postsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
-                this.postFlowViewModel.selectedPost = MutableLiveData(postList[itemIndex].id)
-                this.findNavController().navigate(R.id.action_postFlowFragment_to_postFragment)
-            }
 
         }, {Log.i("Test!!! - error", it.error_desc)})*/
+        Log.i("Test!!! - qqqqq", prevView.postsToShow.value.toString())
         postList.addAll(prevView.postsToShow.value!!.map { Post(it.post_id, it.topic.title, it.author.nickname, it.text) })
+        val postListViewAdapter = context?.let { PostListViewAdapter(postList, it) }
+        Log.i("Test!!! - qqqqqq", postListViewAdapter.toString())
+        binding.postsListView.adapter = postListViewAdapter
+        Log.i("Test!!! - qqqqqq", "adapter")
+        binding.postsListView.dividerHeight = 50
 
+        Log.i("Test!!! - qqqqqq", "setting listeners")
+        binding.postsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
+            this.postFlowViewModel.selectedPost = MutableLiveData(postList[itemIndex].id)
+            this.findNavController().navigate(R.id.action_postFlowFragment_to_postFragment)
+        }
+        Log.i("Test!!! - qqqqqq", "finishing")
     }
 
 }

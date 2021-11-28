@@ -18,13 +18,14 @@ data class Status(val ok: Boolean)
 data class LoginInfo (val user_id: Int, val access_token: String)
 
 @Serializable
-data class ProfileInfo(val info: UserInfo, val posts: List<Int>)
+data class ProfileInfo(val am_i_subscribed: Boolean, val subscribers_count: Int,
+                       val info: UserInfo, val posts: List<Int>)
 
 @Serializable
 data class PostTopic(val topic_id: Int, val title: String)
 
 @Serializable
-data class UserInfo(val user_id: Int, val nickname: String, val avatar_link: String?)
+data class UserInfo(val user_id: Int, val nickname: String)
 
 @Serializable
 data class PostExtended(val post_id: Int, val timestamp: String, val topic: PostTopic, val author: UserInfo, val text: String)

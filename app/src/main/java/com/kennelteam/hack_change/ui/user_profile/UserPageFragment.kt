@@ -14,16 +14,16 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import com.kennelteam.hack_change.Networker
-import com.kennelteam.hack_change.OnSwipeTouchListener
+import com.kennelteam.hack_change.*
 import com.kennelteam.hack_change.databinding.FragmentUserPageBinding
-import com.kennelteam.hack_change.R
+import com.kennelteam.hack_change.ui.flow.companies.PrePostFlowViewModel
 import com.kennelteam.hack_change.ui.flow.post.PostFragment
 import com.kennelteam.hack_change.ui.flow.post.PostViewModel
 import java.lang.Exception
 
 class UserPageFragment : Fragment() {
     private val prevView: PostViewModel by activityViewModels()
+    private val prePostViewModel: PrePostFlowViewModel by activityViewModels()
     private var _binding: FragmentUserPageBinding? = null
 
     // This property is only valid between onCreateView and
@@ -43,9 +43,18 @@ class UserPageFragment : Fragment() {
         _binding = FragmentUserPageBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        Networker.getProfile(prevView.data.value!!, { user, posts ->
-            name = user.nickname
-            binding.userNicknameLabel.setText(user.nickname)
+        Networker.getProfile(prevView.data.value!!, { profile: ProfileInfo ->
+            name = profile.info.nickname
+            binding.mySubscribers.text = "Subscribers: " + profile.subscribers_count.toString()
+            binding.userNicknameLabel.setText(profile.info.nickname)
+
+            prePostViewModel.postsToShow.value!!.clear()
+            profile.posts.forEach { el ->
+                Networker.getPost(el,
+                    {prePostViewModel.postsToShow.value!!.add(it)},
+                    {Log.i("Test!!! - error", it.error_desc)}
+                )
+            }
         }, {Log.i("Test!!! - error", it.error_desc)})
 
         var is_subscribed = true

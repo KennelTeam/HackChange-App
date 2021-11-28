@@ -9,10 +9,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.kennelteam.hack_change.AccessTokenManager
-import com.kennelteam.hack_change.Networker
-import com.kennelteam.hack_change.R
-import com.kennelteam.hack_change.Variables
+import com.kennelteam.hack_change.*
 import com.kennelteam.hack_change.databinding.FragmentEditProfileBinding
 
 class EditProfileFragment : Fragment() {
@@ -38,8 +35,8 @@ class EditProfileFragment : Fragment() {
 
         val nickname_edit = binding.editNickname
         Networker.getProfile(AccessTokenManager.get_id(), {
-                user, postIds ->  if (nickname_edit.text.toString() == "") {
-            nickname_edit.setText(user.nickname)
+                profile: ProfileInfo ->  if (nickname_edit.text.toString() == "") {
+            nickname_edit.setText(profile.info.nickname)
         }
         }, { Log.i("Test!!! - error", it.error_desc) })
         //val status_edit = binding.editStatus

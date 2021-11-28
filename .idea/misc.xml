@@ -3,46 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../../../../../layout/custom_preview.xml" value="0.37083333333333335" />
-        <entry key="../../../../Android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.19791666666666666" />
-        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_comment.xml" value="0.1" />
+        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/drawable/circle_btn.xml" value="0.23385416666666667" />
+        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_comment.xml" value="0.4" />
         <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_companies.xml" value="0.1" />
+        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_create_post.xml" value="0.4" />
         <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_dashboard.xml" value="0.12092391304347826" />
-        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_post_flow.xml" value="0.1" />
+        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_edit_profile.xml" value="0.264" />
+        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_flow.xml" value="0.12239583333333333" />
+        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_post.xml" value="0.176" />
+        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_post_flow.xml" value="0.10400000000000001" />
         <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
+        <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/fragment_user_page.xml" value="0.4" />
         <entry key="..\:/Dropbox/Dropbox/Nikita/Programs_1/Android/HackChange/Client/app/src/main/res/layout/login_fragment.xml" value="0.264" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25407608695652173" />
-        <entry key="app/src/main/res/layout/comment_list_view_item.xml" value="0.3342391304347826" />
-        <entry key="app/src/main/res/layout/custom_action_bar.xml" value="0.21145833333333333" />
-        <entry key="app/src/main/res/layout/custom_list_view_adapter.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/custom_list_view_item.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.3342391304347826" />
-        <entry key="app/src/main/res/layout/fragment_comment.xml" value="0.33242753623188404" />
-        <entry key="app/src/main/res/layout/fragment_companies.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/fragment_create_post.xml" value="0.19791666666666666" />
-        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.3292572463768116" />
-        <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.19791666666666666" />
-        <entry key="app/src/main/res/layout/fragment_flow.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19791666666666666" />
-        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.3292572463768116" />
-        <entry key="app/src/main/res/layout/fragment_post.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/fragment_post_flow.xml" value="0.3342391304347826" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/fragment_user_page.xml" value="0.20416666666666666" />
-        <entry key="app/src/main/res/layout/fragment_user_posts.xml" value="0.19635416666666666" />
-        <entry key="app/src/main/res/layout/login_fragment.xml" value="0.21145833333333333" />
-        <entry key="app/src/main/res/layout/login_layout.xml" value="0.33796296296296297" />
-        <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/post_flow_fragment.xml" value="0.33242753623188404" />
-        <entry key="app/src/main/res/layout/post_fragment.xml" value="0.19791666666666666" />
-        <entry key="app/src/main/res/layout/post_list_view_item.xml" value="0.33016304347826086" />
-        <entry key="app/src/main/res/layout/profile_layout.xml" value="0.21145833333333333" />
-        <entry key="app/src/main/res/layout/registration_layout.xml" value="0.21145833333333333" />
-        <entry key="app/src/main/res/layout/setup_fragment.xml" value="0.21145833333333333" />
-        <entry key="app/src/main/res/layout/tools_list_view_item.xml" value="0.21145833333333333" />
-        <entry key="app/src/main/res/layout/user_posts.xml" value="0.21145833333333333" />
-        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.35572916666666665" />
       </map>
     </option>
   </component>

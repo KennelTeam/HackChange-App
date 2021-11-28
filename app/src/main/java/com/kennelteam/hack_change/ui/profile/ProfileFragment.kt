@@ -51,8 +51,8 @@ class ProfileFragment : Fragment() {
         }
 
         Networker.getProfile(AccessTokenManager.get_id(),
-            {user: UserInfo, postIds: List<Int> -> binding.textNickname.setText(user.nickname)
-                postIds.forEach { el ->
+            {profile: ProfileInfo -> binding.textNickname.setText(profile.info.nickname)
+                profile.posts.forEach { el ->
                     Networker.getPost(el,
                         {prePostsView.postsToShow.value!!.add(it)},
                         {Log.i("Test!!! - error", it.error_desc)}

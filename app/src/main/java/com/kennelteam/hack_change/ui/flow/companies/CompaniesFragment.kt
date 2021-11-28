@@ -57,8 +57,10 @@ class CompaniesFragment : Fragment() {
                     adapterView, view, itemIndex, _->
 
                 Networker.postsByTopic(topics[itemIndex].topic_id, {
+                    Log.i("Test!!!", "there successfull")
                     this.companiesViewModel.selectedTopic.value = topics[itemIndex].topic_id
                     this.prePostViewModel.postsToShow.value = it.toMutableList()
+                    Log.i("Test!!!", this.prePostViewModel.postsToShow.value.toString())
                     this.findNavController().navigate(R.id.action_companiesFragment_to_postFlowFragment)
                 }, { Log.i("Test!!! - error", it.error_desc) })
             }
