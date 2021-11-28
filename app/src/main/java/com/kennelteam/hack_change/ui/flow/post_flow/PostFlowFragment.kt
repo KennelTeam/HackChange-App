@@ -44,6 +44,10 @@ class PostFlowFragment : Fragment() {
 
         val postListViewAdapter = context?.let { PostListViewAdapter(postList, it) }
 
+        binding.addPostButton.setOnClickListener( {
+            this.findNavController().navigate(R.id.action_navigation_flow_to_create)
+        } )
+
         return root
     }
 
@@ -58,6 +62,7 @@ class PostFlowFragment : Fragment() {
     }
 
     private fun loadPosts() {
+        postList.clear()
         val selectedTopic = prevView.selectedTopic.value!!
         Networker.postsByTopic(selectedTopic, {
             postList.addAll(it.map { el -> Post(el.post_id, el.topic.title, el.author.nickname, el.text) })
@@ -71,7 +76,7 @@ class PostFlowFragment : Fragment() {
             }
 
         }, {Log.i("Test!!! - error", it.error_desc)})
-        
+
     }
 
 }

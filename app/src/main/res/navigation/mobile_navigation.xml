@@ -63,7 +63,11 @@
         android:id="@+id/postFlowFragment"
         android:name="com.kennelteam.hack_change.ui.flow.post_flow.PostFlowFragment"
         android:label="fragment_post_flow"
-        tools:layout="@layout/fragment_post_flow" />
+        tools:layout="@layout/fragment_post_flow" >
+        <action
+            android:id="@+id/action_navigation_flow_to_create"
+            app:destination="@id/createPostFragment"/>
+    </fragment>
     <fragment
         android:id="@+id/login"
         android:name="com.kennelteam.hack_change.ui.login.Login"

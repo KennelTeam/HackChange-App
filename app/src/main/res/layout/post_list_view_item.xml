@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/theme"
+            android:id="@+id/UserName"
             android:layout_width="fill_parent"
             android:layout_height="19dp"
             android:layout_marginStart="51dp"
@@ -32,7 +32,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/user_id"
+            android:id="@+id/topic"
             android:layout_width="fill_parent"
             android:layout_height="16dp"
             android:layout_marginStart="51dp"
