@@ -154,12 +154,12 @@ class Networker {
             }, onFail)
         }
 
-        fun subscribe(user_id: Int, onFail: (e: Error) -> Unit) {
-            sendRequest("subscribe", mapOf("user_id" to user_id.toString()), {}, onFail)
+        fun subscribe(user_id: Int, onSuccess: () -> Unit, onFail: (e: Error) -> Unit) {
+            sendRequest("subscribe", mapOf("user_id" to user_id.toString()), {onSuccess()}, onFail)
         }
 
-        fun unsubscribe(user_id: Int, onFail: (e: Error) -> Unit) {
-            sendRequest("unsubscribe", mapOf("user_id" to user_id.toString()), {}, onFail)
+        fun unsubscribe(user_id: Int, onSuccess: () -> Unit, onFail: (e: Error) -> Unit) {
+            sendRequest("unsubscribe", mapOf("user_id" to user_id.toString()), {onSuccess()}, onFail)
         }
 
         fun getSubscriptionsPosts(onSuccess: (posts: List<PostExtended>) -> Unit,

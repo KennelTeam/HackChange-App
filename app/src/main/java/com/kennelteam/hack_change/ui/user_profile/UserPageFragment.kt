@@ -31,7 +31,7 @@ class UserPageFragment : Fragment() {
     private val binding get() = _binding!!
 
     private var isSubscribed: Boolean = false
-    private var name: String = "loading..."
+    private lateinit var info: UserInfo
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
@@ -43,30 +43,17 @@ class UserPageFragment : Fragment() {
         _binding = FragmentUserPageBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        Networker.getProfile(prevView.data.value!!, { profile: ProfileInfo ->
-            name = profile.info.nickname
-            binding.mySubscribers.text = "Subscribers: " + profile.subscribers_count.toString()
-            binding.userNicknameLabel.setText(profile.info.nickname)
+        updateData()
 
-            prePostViewModel.postsToShow.value!!.clear()
-            profile.posts.forEach { el ->
-                Networker.getPost(el,
-                    {prePostViewModel.postsToShow.value!!.add(it)},
-                    {Log.i("Test!!! - error", it.error_desc)}
-                )
-            }
-        }, {Log.i("Test!!! - error", it.error_desc)})
-
-        var is_subscribed = true
-
-        val buttonSubscribe = binding.subscribeButton
-        buttonSubscribe.setOnClickListener {
-            if (is_subscribed) {
-                is_subscribed = false
-                buttonSubscribe.setText("Подписаться")
+        binding.subscribeButton.setOnClickListener {
+            if (isSubscribed) {
+                Networker.unsubscribe(info.user_id, {isSubscribed = false; updateData()
+                                                    binding.subscribeButton.setText("Подписаться")},
+                    {Log.i("Test!!! - error", it.error_desc)})
             } else {
-                is_subscribed = true
-                buttonSubscribe.setText("Отписаться")
+                Networker.subscribe(info.user_id, {isSubscribed = true; updateData()
+                    binding.subscribeButton.setText("Отписаться")},
+                    {Log.i("Test!!! - error", it.error_desc)})
             }
         }
 
@@ -82,6 +69,22 @@ class UserPageFragment : Fragment() {
         })
 
         return root
+    }
+
+    private fun updateData() {
+        Networker.getProfile(prevView.data.value!!, { profile: ProfileInfo ->
+            info = profile.info
+            binding.mySubscribers.text = profile.subscribers_count.toString()
+            binding.userNicknameLabel.setText(profile.info.nickname)
+            isSubscribed = profile.am_i_subscribed
+            prePostViewModel.postsToShow.value!!.clear()
+            profile.posts.forEach { el ->
+                Networker.getPost(el,
+                    {prePostViewModel.postsToShow.value!!.add(it)},
+                    {Log.i("Test!!! - error", it.error_desc)}
+                )
+            }
+        }, {Log.i("Test!!! - error", it.error_desc)})
     }
 
     override fun onDestroyView() {
