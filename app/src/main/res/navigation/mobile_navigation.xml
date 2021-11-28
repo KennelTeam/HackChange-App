@@ -24,7 +24,7 @@
         android:label="@string/title_flow"
         tools:layout="@layout/fragment_tools" >
         <action
-            android:id="@+id/action_navigation_flow_to_companiesFragment"
+            android:id="@+id/action_navigation_tools_to_companiesFragment"
             app:destination="@id/companiesFragment" />
     </fragment>
 

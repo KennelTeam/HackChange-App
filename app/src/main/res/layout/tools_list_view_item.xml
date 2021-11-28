@@ -22,7 +22,7 @@
         android:id="@+id/tool_description"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="Ценная бумага, которая позволяет получить часть прибыли компании или долю при разделе ее имущества"
         android:textColor="@color/headings"
