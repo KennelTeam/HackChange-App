@@ -15,7 +15,8 @@ class PostListViewAdapter(items: ArrayList<Post>, ctx: Context) :
     ArrayAdapter<Post>(ctx, R.layout.post_list_view_item, items) {
 
     private class PostItemViewHolder {
-        var userName: TextView? = null
+        var postTheme: TextView? = null
+        var userId: TextView? = null
         var text: TextView? = null
     }
 
@@ -28,14 +29,16 @@ class PostListViewAdapter(items: ArrayList<Post>, ctx: Context) :
             view_ = inflater.inflate(R.layout.post_list_view_item, viewGroup, false)
 
             viewHolder = PostItemViewHolder()
-            viewHolder.userName = view_!!.findViewById<View>(R.id.user_name) as TextView
+            viewHolder.postTheme = view_!!.findViewById<View>(R.id.theme) as TextView
+            viewHolder.userId = view_.findViewById<View>(R.id.user_id) as TextView
             viewHolder.text = view_.findViewById<View>(R.id.text) as TextView
         } else {
             viewHolder = view_.tag as PostItemViewHolder
         }
 
         val post = getItem(i)
-        viewHolder.userName!!.text = post!!.userName
+        viewHolder.postTheme!!.text = post!!.theme
+        viewHolder.userId!!.text = post.userId
         viewHolder.text!!.text = post.text
 
         view_.tag = viewHolder
