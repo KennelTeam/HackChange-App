@@ -21,25 +21,28 @@ data class LoginInfo (val user_id: Int, val access_token: String)
 data class ProfileInfo(val info: UserInfo, val posts: List<Int>)
 
 @Serializable
-data class PostTopic(val id: Int, val title: String)
+data class PostTopic(val topic_id: Int, val title: String)
 
 @Serializable
 data class UserInfo(val user_id: Int, val nickname: String, val avatar_link: String?)
 
 @Serializable
-data class PostExtended(val id: Int, val timestamp: String, val topic: PostTopic, val author: UserInfo, val text: String)
+data class PostExtended(val post_id: Int, val timestamp: String, val topic: PostTopic, val author: UserInfo, val text: String)
 
 @Serializable
-data class Instrument(val id: Int, val name: String, val details: String)
+data class Instrument(val instrument_id: Int, val name: String, val details: String)
 
 @Serializable
 data class AllInstruments(val instruments: List<Instrument>)
 
 @Serializable
+data class Topics(val topics: List<PostTopic>)
+
+@Serializable
 data class Posts(val posts: List<PostExtended>)
 
 @Serializable
-data class Comment(val timestamp: String, val commenter: UserInfo, val text: String)
+data class Comment(val comment_id: Int, val timestamp: String, val commenter: UserInfo, val text: String)
 
 @Serializable
 data class Comments(val comments: List<Comment>)

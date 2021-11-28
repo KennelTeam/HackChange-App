@@ -102,6 +102,19 @@ class Networker {
                 "title" to title), {}, onFail)
         }
 
+        fun getTopicsByInstrument(instrument_id: Int,
+                                  onSuccess: (comments: List<PostTopic>) -> Unit,
+                                  onFail: (e: Error) -> Unit) {
+            sendRequest("topicsByInstrument", mapOf("instrument_id" to instrument_id.toString()), {
+                try {
+                    val data = jsonFormat.decodeFromString<Topics>(it)
+                    onSuccess(data.topics)
+                } catch (e: Exception) {
+                    onFail(Error(-1, e.message!!))
+                }
+            }, onFail)
+        }
+
         fun postsByTopic(topic_id: Int, onSuccess: (posts: List<PostExtended>) -> Unit,
                          onFail: (e: Error) -> Unit) {
             sendRequest("postsByTopic", mapOf("topic_id" to topic_id.toString()), {

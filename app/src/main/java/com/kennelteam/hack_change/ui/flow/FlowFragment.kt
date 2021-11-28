@@ -10,12 +10,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.kennelteam.hack_change.databinding.FragmentFlowBinding
 import android.widget.ArrayAdapter
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
+import com.kennelteam.hack_change.Networker
 import com.kennelteam.hack_change.R
 
 class FlowFragment : Fragment() {
 
-    private lateinit var flowViewModel: FlowViewModel
+    private val flowViewModel: FlowViewModel by activityViewModels()
     private var _binding: FragmentFlowBinding? = null
 
     private val binding get() = _binding!!
@@ -25,24 +28,34 @@ class FlowFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        flowViewModel = ViewModelProvider(this)[FlowViewModel::class.java]
+        //flowViewModel = ViewModelProvider(this)[FlowViewModel::class.java]
 
         _binding = FragmentFlowBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
 
-        val toolsList = arrayOf(
-            "Акции", "Облигации", "Валюта", "Деривативы", "Драгоценные металлы", "Фонды"
+        var toolsList = emptyArray<String>(
+//            "Акции", "Облигации", "Валюта", "Деривативы", "Драгоценные металлы", "Фонды"
         )
 
-        val toolsAdapter = context?.let { ArrayAdapter(it, android.R.layout.simple_list_item_1, toolsList) }
+        Networker.getAllInstruments({
+            Log.i("Test!!! - success", "nice")
+            it.forEach {el -> Log.i("Test!!! - success", el.name) }
 
-        binding.toolsListView.adapter = toolsAdapter
+            toolsList = it.map { el -> el.name }.toTypedArray()
 
-        binding.toolsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
-            Log.i("aaa", toolsList[itemIndex])
-            this.findNavController().navigate(R.id.action_navigation_flow_to_companiesFragment)
-        }
+            val toolsAdapter = context?.let { ArrayAdapter(it, android.R.layout.simple_list_item_1, toolsList) }
+
+            binding.toolsListView.adapter = toolsAdapter
+
+            binding.toolsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
+                Log.i("aaa", it[itemIndex].name)
+                flowViewModel.selectedInstrument = MutableLiveData(it[itemIndex].instrument_id)
+                this.findNavController().navigate(R.id.action_navigation_flow_to_companiesFragment)
+            }
+        }, {Log.i("Test!!! - error", it.error_desc)})
+
+
 
         return root
     }

@@ -8,15 +8,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.kennelteam.hack_change.Networker
 import com.kennelteam.hack_change.R
 import com.kennelteam.hack_change.databinding.FragmentPostBinding
 import com.kennelteam.hack_change.ui.flow.Comment
 import com.kennelteam.hack_change.ui.flow.comment.CommentListViewAdapter
+import com.kennelteam.hack_change.ui.flow.post_flow.PostFlowViewModel
 
 class PostFragment : Fragment() {
 
-    private lateinit var postViewModel: PostViewModel
+    private val prevView: PostFlowViewModel by activityViewModels()
+    private val postViewModel: PostViewModel by activityViewModels()
     private var _binding: FragmentPostBinding? = null
 
     private var commentList = ArrayList<Comment>()
@@ -29,9 +33,6 @@ class PostFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         loadComments()
-
-        postViewModel = ViewModelProvider(this)[PostViewModel::class.java]
-
         _binding = FragmentPostBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
@@ -41,12 +42,15 @@ class PostFragment : Fragment() {
         binding.commentsListView.adapter = commentsListViewAdapter
 
         binding.commentsListView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, itemIndex, _->
-//            this.findNavController().navigate(R.id.action_postFlowFragment_to_postFragment)
+            this.findNavController().navigate(R.id.action_postFlowFragment_to_postFragment)
         }
 
 
         binding.sendCommentButton.setOnClickListener {
             Log.i("test", "send comment: ${binding.commentText.text}")
+
+            Networker.addComment(prevView.selectedPost.value!!, binding.commentText.text.toString(),
+                { Log.i("Test!!! - error", it.error_desc)})
 
             binding.commentText.text.clear()
         }
@@ -60,14 +64,8 @@ class PostFragment : Fragment() {
     }
 
     private fun loadComments() {
-        for (i in 0..10) {
-            commentList.add(
-                Comment(
-                i,
-                "UserName $i",
-                "comment text $i comment text $i comment text $i comment text $i comment text $i comment text $i comment text $i comment text $i comment text $i " +
-                        "comment text $i comment text $i comment text $i comment text $i comment text $i comment text $i comment text $i comment text $i comment text $i "
-            ))
-        }
+        Networker.getCommentsByPost(prevView.selectedPost.value!!, {
+            commentList.addAll(it.map { el -> Comment(el.comment_id, el.commenter.nickname, el.text) })
+        }, { Log.i("Test!!! - error", it.error_desc) })
     }
 }
