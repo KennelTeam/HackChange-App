@@ -53,8 +53,8 @@ class PostFragment : Fragment() {
     private fun setMainText() {
         Networker.getPost(prevView.selectedPost.value!!, {
             binding.text.setText(it.text)
-            binding.UserName.setText(it.author.nickname)
-            binding.topic.setText(it.topic.title)
+            binding.userId.setText(it.author.nickname)
+            binding.topicPost.setText(it.topic.title)
         }, { Log.i("Test!!! - error", it.error_desc) })
     }
     override fun onResume() {
