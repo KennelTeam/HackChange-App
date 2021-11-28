@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.kennelteam.hack_change.*
 import com.kennelteam.hack_change.databinding.FragmentProfileBinding
 import com.kennelteam.hack_change.ui.flow.companies.PrePostFlowViewModel
+import java.lang.Exception
 
 class ProfileFragment : Fragment() {
     private val prePostsView: PrePostFlowViewModel by activityViewModels()
@@ -38,7 +39,7 @@ class ProfileFragment : Fragment() {
         val nickname: TextView = binding.textNickname
         nickname.setText("loading....")
 
-        val profileImage: ImageView = binding.imageView
+        val profileImage: ImageView = binding.myAvatar
 
         val edit_button: Button = binding.buttonEditProfile
         edit_button.setOnClickListener {
@@ -52,15 +53,28 @@ class ProfileFragment : Fragment() {
 
         Networker.getProfile(AccessTokenManager.get_id(),
             {profile: ProfileInfo -> binding.textNickname.setText(profile.info.nickname)
+                prePostsView.postsToShow.value = mutableListOf<PostExtended>()
+                binding.mySubscribers.setText(profile.subscribers_count.toString())
+                Log.i("Test!!! - logs", profile.posts.size.toString())
                 profile.posts.forEach { el ->
                     Networker.getPost(el,
-                        {prePostsView.postsToShow.value!!.add(it)},
+                        {post -> prePostsView.postsToShow.value!!.add(post); Log.i("Test!!! - logs", post.text)},
                         {Log.i("Test!!! - error", it.error_desc)}
                     )
                 }
             },
             { Log.i("Test!!! - error", it.error_desc)})
 
+        root.setOnTouchListener(object: OnSwipeTouchListener(context) {
+            override fun onSwipeTop() {
+                try {
+                    Navigation.findNavController(root)
+                        .navigate(R.id.action_profile_posts)
+                } catch(e: Exception) {
+                    Log.i("TEST!!!", "$e")
+                }
+            }
+        })
         return root
     }
 

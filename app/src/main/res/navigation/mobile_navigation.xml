@@ -49,6 +49,13 @@
         <action
             android:id="@+id/action_profile_logout"
             app:destination="@id/login"/>
+        <action
+            android:id="@+id/action_profile_posts"
+            app:destination="@id/navigation_user_posts"
+            app:enterAnim="@anim/to_user_posts"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/from_user_posts"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
