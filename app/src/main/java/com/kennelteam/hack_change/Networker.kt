@@ -1,6 +1,7 @@
 package com.kennelteam.hack_change
 
 import android.content.Context
+import android.provider.ContactsContract
 import android.util.Log
 import java.lang.Exception
 import com.android.volley.Request
@@ -28,6 +29,7 @@ class Networker {
                 val data = jsonFormat.decodeFromString<LoginInfo>(response)
                 succsess_callback(data.user_id, data.access_token)
             } catch (e: Exception) {
+                Log.i("Test!!!", e.message.toString())
                 fail_callback(Error(-1, "Error while parsing json"))
             }
         }
@@ -47,12 +49,12 @@ class Networker {
                 { process_login(it, onLogin, onFail) }, onFail)
         }
 
-        fun getProfile(profileId: Int, setInfo: (user: UserInfo, postIds: List<Int>) -> Unit,
+        fun getProfile(profileId: Int, setInfo: (user: ProfileInfo) -> Unit,
                 onFail: (e: Error) -> Unit) {
             sendRequest("getProfile", mapOf("user_id" to profileId.toString()), {
                 try {
                     val data = jsonFormat.decodeFromString<ProfileInfo>(it)
-                    setInfo(data.info, data.posts)
+                    setInfo(data)
                 } catch (e: Exception) {
                     onFail(Error(-1, e.message!!))
                 }
@@ -119,9 +121,12 @@ class Networker {
                          onFail: (e: Error) -> Unit) {
             sendRequest("postsByTopic", mapOf("topic_id" to topic_id.toString()), {
                 try {
+                    Log.i("Test!!! - there", "qqq")
                     val data = jsonFormat.decodeFromString<Posts>(it)
+                    Log.i("Test!!! - there", data.toString())
                     onSuccess(data.posts)
                 } catch (e: Exception) {
+                    Log.i("Test!!! - error 1", e.toString())
                     onFail(Error(-1, e.message!!))
                 }
             }, onFail)

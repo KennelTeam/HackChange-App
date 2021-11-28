@@ -1,7 +1,5 @@
 package com.kennelteam.hack_change.ui.flow.companies
 
-import android.media.metrics.LogSessionId
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,17 +9,16 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
 import com.kennelteam.hack_change.*
 import com.kennelteam.hack_change.databinding.FragmentCompaniesBinding
 import com.kennelteam.hack_change.ui.flow.ToolsViewModel
-import com.kennelteam.hack_change.ui.flow.Post
 
 class CompaniesFragment : Fragment() {
 
     private val prevViewModel: ToolsViewModel by activityViewModels()
     private val companiesViewModel: CompaniesViewModel by activityViewModels()
+    private val prePostViewModel: PrePostFlowViewModel by activityViewModels()
     private var _binding: FragmentCompaniesBinding? = null
 
     private val binding get() = _binding!!
@@ -59,8 +56,13 @@ class CompaniesFragment : Fragment() {
             binding.companiesListView.onItemClickListener = AdapterView.OnItemClickListener {
                     adapterView, view, itemIndex, _->
 
-                this.companiesViewModel.selectedTopic = MutableLiveData(topics[itemIndex].topic_id)
-                this.findNavController().navigate(R.id.action_companiesFragment_to_postFlowFragment)
+                Networker.postsByTopic(topics[itemIndex].topic_id, {
+                    Log.i("Test!!!", "there successfull")
+                    this.companiesViewModel.selectedTopic.value = topics[itemIndex].topic_id
+                    this.prePostViewModel.postsToShow.value = it.toMutableList()
+                    Log.i("Test!!!", this.prePostViewModel.postsToShow.value.toString())
+                    this.findNavController().navigate(R.id.action_companiesFragment_to_postFlowFragment)
+                }, { Log.i("Test!!! - error", it.error_desc) })
             }
         }, { Log.i("Test!!! - error", it.error_desc)})
 

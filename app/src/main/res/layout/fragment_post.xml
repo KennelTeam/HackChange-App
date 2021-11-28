@@ -24,6 +24,7 @@
             android:layout_height="16dp"
             android:layout_marginStart="51dp"
             android:layout_marginTop="33dp"
+            android:clickable="true"
             android:text="@callmecool"
             android:textColor="@color/accent"
             app:layout_constraintStart_toStartOf="parent"
@@ -119,11 +120,11 @@
             android:id="@+id/topicPost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="138dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="33dp"
             android:text="@Tesla"
             android:textColor="#FFA000"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/user_id"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
