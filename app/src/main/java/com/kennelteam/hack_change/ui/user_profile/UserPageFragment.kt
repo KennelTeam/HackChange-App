@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.kennelteam.hack_change.Networker
 import com.kennelteam.hack_change.OnSwipeTouchListener
 import com.kennelteam.hack_change.databinding.FragmentUserPageBinding
 import com.kennelteam.hack_change.R
