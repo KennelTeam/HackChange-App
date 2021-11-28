@@ -1,5 +1,6 @@
 package com.kennelteam.hack_change
 
+import android.content.Intent
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -27,8 +28,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Networker.setup(this)
-        Networker.sendRequest("authent", {text: String? -> Log.i("Test!!!", text.toString())})
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -52,16 +51,6 @@ class MainActivity : AppCompatActivity() {
             actionBar.setDisplayHomeAsUpEnabled(true)
             actionBar.setHomeButtonEnabled(true)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-//            actionBar.setBackgroundDrawable(ColorDrawable(Color.parseColor("#D8F0FB")));
-//            val s = SpannableString(title)
-//            s.setSpan(
-//                ForegroundColorSpan(Color.parseColor("#28282D")),
-//                0,
-//                title.length,
-//                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-//            )
-//            actionBar.title = s
         }
 
     }

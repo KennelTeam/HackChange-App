@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/setup">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_edit_profile"
             app:destination="@id/navigation_edit_profile" />
+        <action
+            android:id="@+id/action_profile_logout"
+            app:destination="@id/login"/>
     </fragment>
 
     <fragment
@@ -61,6 +64,29 @@
         android:name="com.kennelteam.hack_change.ui.flow.post_flow.PostFlowFragment"
         android:label="fragment_post_flow"
         tools:layout="@layout/fragment_post_flow" />
+    <fragment
+        android:id="@+id/login"
+        android:name="com.kennelteam.hack_change.ui.login.Login"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/login_to_flow"
+            app:destination="@id/navigation_flow"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/setup"
+        android:name="com.kennelteam.hack_change.ui.setup.SetupFragment"
+        android:label="setup_fragment"
+        tools:layout="@layout/setup_fragment">
+        <action
+            android:id="@+id/setup_to_login"
+            app:destination="@id/login"/>
+        <action
+            android:id="@+id/setup_to_flow"
+            app:destination="@id/navigation_flow"/>
+    </fragment>
+
     <fragment
         android:id="@+id/createPostFragment"
         android:name="com.kennelteam.hack_change.ui.create_post.CreatePostFragment"

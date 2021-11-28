@@ -9,6 +9,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.kennelteam.hack_change.Networker
 import com.kennelteam.hack_change.R
 import com.kennelteam.hack_change.Variables
 import com.kennelteam.hack_change.databinding.FragmentEditProfileBinding
@@ -40,8 +41,10 @@ class EditProfileFragment : Fragment() {
         val edit_button: Button = binding.buttonConfirm
         edit_button.setOnClickListener {
             Log.i("test-logs", "Profile Edited")
-            Variables.nickname = nickname_edit.text.toString()
-            Variables.status = status_edit.text.toString()
+            //Variables.nickname = nickname_edit.text.toString()
+            //Variables.status = status_edit.text.toString()
+            Networker.setMyInfo(nickname = nickname_edit.text.toString(),
+                onFail = {Log.i("Test!!! - error", it.error_desc)})
             Navigation.findNavController(root).navigate(R.id.action_profile_edited)
         }
 
