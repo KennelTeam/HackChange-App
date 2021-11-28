@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.kennelteam.hack_change.ui.home.HomeFragment"
+        android:name="com.kennelteam.hack_change.ui.home.SubscribesFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/subscribes_fragment" >
         <action
             android:id="@+id/action_start_create_post"
             app:destination="@id/createPostFragment" />
@@ -22,7 +22,7 @@
         android:id="@+id/navigation_user_posts"
         android:name="com.kennelteam.hack_change.ui.UserPostsFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/subscribes_fragment" >
         <action
             android:id="@+id/action_navigation_user_posts_to_userPageFragment"
             app:destination="@id/userPageFragment" />
