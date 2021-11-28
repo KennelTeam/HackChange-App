@@ -20,7 +20,6 @@ import com.kennelteam.hack_change.ui.flow.companies.CompaniesViewModel
 import androidx.appcompat.app.AppCompatActivity
 import com.kennelteam.hack_change.MainActivity
 
-
 class PostFlowFragment : Fragment() {
 
     private val prevView: CompaniesViewModel by activityViewModels()
@@ -28,7 +27,6 @@ class PostFlowFragment : Fragment() {
     private var _binding: FragmentPostFlowBinding? = null
 
     private var postList = ArrayList<Post>()
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -41,8 +39,6 @@ class PostFlowFragment : Fragment() {
         _binding = FragmentPostFlowBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
-
-        val postListViewAdapter = context?.let { PostListViewAdapter(postList, it) }
 
         return root
     }

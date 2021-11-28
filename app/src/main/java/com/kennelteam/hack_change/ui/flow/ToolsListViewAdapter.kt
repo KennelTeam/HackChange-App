@@ -7,9 +7,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.kennelteam.hack_change.R
-import java.util.ArrayList
 
-class ToolsListViewAdapter(items: ArrayList<Tool>, ctx: Context) :
+class ToolsListViewAdapter(items: Array<Tool>, ctx: Context) :
     ArrayAdapter<Tool>(ctx, R.layout.tools_list_view_item, items) {
 
     private class ToolItemViewHolder {
@@ -26,8 +25,8 @@ class ToolsListViewAdapter(items: ArrayList<Tool>, ctx: Context) :
             view = inflater.inflate(R.layout.tools_list_view_item, viewGroup, false)
 
             viewHolder = ToolItemViewHolder()
-            viewHolder.title = view!!.findViewById<View>(R.id.theme) as TextView
-            viewHolder.description = view.findViewById<View>(R.id.text) as TextView
+            viewHolder.title = view!!.findViewById<View>(R.id.tool_title) as TextView
+            viewHolder.description = view.findViewById<View>(R.id.tool_description) as TextView
         } else {
             viewHolder = view.tag as ToolItemViewHolder
         }
